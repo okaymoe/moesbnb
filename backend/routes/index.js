@@ -6,4 +6,12 @@ router.get('/hello/world', function(req, res) {
   res.send('Hello World!');
 });
 
+const apiRouter = require('./api');
+
+router.use('/api', apiRouter);
+
+router.post('/test', function(req, res) {
+    res.json({ requestBody: req.body });
+  });
+
 module.exports = router;
