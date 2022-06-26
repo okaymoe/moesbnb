@@ -12,7 +12,7 @@ function Banner() {
                 <button onClick={() => 
                 setShowSearch(!showSearch)}
                 className="banner_searchButton">
-                Search Dates
+                {showSearch ? "Hide" : "Search Dates"}
                 </button>
             </div>
             <div className="banner_info">

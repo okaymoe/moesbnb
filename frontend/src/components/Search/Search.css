@@ -1,10 +1,50 @@
 .search {
+    display: flex;
     position: absolute;
-    top: 35px;
+    top: 30px;
     left: 25%;
     width: 100vw;
 }
 
 .search > h2 {
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 558px;
+    padding: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 325px;
+}
+
+.search > input {
+    width: 578px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    height: 30px;
+    top: 395px;
+    border: none;
+}
+
+.search > input:focus {
+    outline-width: 0;
+}
+
+#searchairbnb {
+    position: absolute;
+    left: 0;
+    top: 435px;
+    text-transform: inherit;
+    background-color: #FF5A5F;
+    color: white;
+    width: 578px;
+    height: 40px;
+    border: none;
+}
+
+#searchairbnb:hover {
+    background-color: white;
+    color:#FF5A5F
 }

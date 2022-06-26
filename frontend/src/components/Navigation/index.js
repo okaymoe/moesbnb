@@ -29,7 +29,7 @@ function Navigation({ isLoaded }) {
 
         <div className="nav_center">
           <input type="text"/>
-          <img src="https://img.icons8.com/pix/32/000000/experimental-search-pix.png" alt="search"/>
+          <img src="https://img.icons8.com/material-rounded/24/000000/search.png" alt="search"/>
         </div>
 
         <div className="nav_right">

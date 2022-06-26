@@ -21,8 +21,13 @@ function Search() {
     return (
         <div className="search">
             <DateRangePicker ranges={[selectionRange]} onChange={handleSelect}/>
-            <h2>Number of guests</h2>
-            <img src="https://img.icons8.com/ios-glyphs/30/000000/group.png"/>
+            <h2>Number of guests
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/group.png" alt="numberofguests"/>
+            </h2>
+            <input min={0} defaultValue={1} type="number"/>
+            <button id="searchairbnb">
+                Search AirBnB
+            </button>
         </div>
     );
 }

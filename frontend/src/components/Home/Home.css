@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.home__section {
+    display: flex;
+    padding-top: 10px;
+  }
