@@ -1,0 +1,37 @@
+.banner {
+    height: 70vh;
+    background: url("https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") center center;
+    position: relative;
+}
+
+.banner_info {
+    background-color: black;
+    font-family: Cereal;
+    color: white;
+    padding-top: 25vh;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    width: 300px;
+}
+
+.searchdatescontainer {
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    font-weight: 900;
+    text-transform: inherit;
+    text-align: center;
+    height: 30px;
+}
+
+.banner_searchButton {
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid rgb(214, 213, 213);
+    border-radius: 999px;
+    color: #FF5A5F;
+    font-weight: 900;
+    text-transform: inherit;
+    text-align: center;
+    height: 25px;
+}

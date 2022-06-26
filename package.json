@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/okaymoe/authenticate-me/issues"
   },
-  "homepage": "https://github.com/okaymoe/authenticate-me#readme"
+  "homepage": "https://github.com/okaymoe/authenticate-me#readme",
+  "dependencies": {
+    "react-date-range": "^1.4.0"
+  }
 }

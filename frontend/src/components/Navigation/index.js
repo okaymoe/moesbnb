@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -21,12 +22,26 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <div className="navbar">
+        <NavLink exact to="/">
+          <img className="logo" src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png" alt="MoeBnB"></img>
+        </NavLink>
+
+        <div className="nav_center">
+          <input type="text"/>
+          <img src="https://img.icons8.com/pix/32/000000/experimental-search-pix.png" alt="search"/>
+        </div>
+
+        <div className="nav_right">
+          <div className="nav_button">
+            <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="menu"/>
+            <img id="avi" src="https://img.icons8.com/material/24/000000/user-male-circle--v1.png" alt="navbutton"/>
+          </div>
+        </div>
+
+        
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    </div>
   );
 }
 
