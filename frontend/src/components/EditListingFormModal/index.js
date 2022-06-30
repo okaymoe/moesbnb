@@ -4,14 +4,14 @@ import EditSpotForm from '../EditSpotForm';
 import './EditListingFormModal.css'
 
 
-function EditListingFormModal({showEditModal, setShowEditModal}) {
-
+function EditListingFormModal({spot, user}) {
+  const [showEditModal, setShowEditModal] = useState(false);
   return (
     <>
-      <button className='edit-listing-btn__modal btn' onClick={() => setShowEditModal(true)}>Log In</button>
+      <button className='edit-listing-btn__modal btn' onClick={() => setShowEditModal(true)}>Edit Spot</button>
       {showEditModal && (
         <Modal onClose={() => setShowEditModal(false)}>
-          <EditSpotForm setShowEditModal={setShowEditModal} showEditModal={showEditModal}/>
+          <EditSpotForm spot={spot} user={user}/>
         </Modal>
       )}
     </>

@@ -6,18 +6,13 @@ import { getSpots } from '../../store/spots';
 import { editImages, createNewImages } from '../../store/images'
 
 
-const EditImageForm = ({ spot, setShowEditModal }) => {
+const EditImageForm = ({ spot }) => {
   const sessionUser = useSelector(state => state.session.user);
   const { id, Images } = spot
   const [updated, setUpdated] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const [imageURLs, setImageURLs] = useState([...Images])
-
-  const userSpots = useSelector(state => state.spots.filter(spot => {
-    return spot.userId === sessionUser.id;
-  }));
-  
 
   useEffect(() => {
     dispatch(getSpots())
@@ -79,7 +74,6 @@ const EditImageForm = ({ spot, setShowEditModal }) => {
 
     setUpdated(true)
     history.push(`/users/${sessionUser.id}/spots`)
-    setShowEditModal(false)
   }
   const reset = () => {
     setImageURLs([{ url: "" }]);
@@ -110,7 +104,7 @@ const EditImageForm = ({ spot, setShowEditModal }) => {
         ))}
         <div className='edit-booking-link__button-container'>
           <button className='booking-link__button btn' type="button" onClick={() => addFormFields()}>Add Another Photo</button>
-          <button className='booking-link__button btn' type="submit" disabled={imageURLs.length < 3}>Submit</button>
+          <button className='booking-link__button btn' type="submit" disabled={imageURLs.length < 0}>Submit</button>
         </div>
       </form>
     </>

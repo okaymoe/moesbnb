@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getSpots } from '../../store/spots'
 import SpotCard from '../SpotCard';
-import EditSpotForm from '../EditSpotForm';
+import EditListingFormModal from '../EditListingFormModal';
 import DeleteListingForm from '../DeleteListingForm';
 // import NoListingsCard from '../NotListingsCard';
 import UnauthorizedUser from '../UnauthorizedUser';
@@ -17,7 +17,6 @@ const UserListings = ({ spots, user }) => {
   const [deleteForm, setDeleteForm] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState(null);
   const [deletedSpot, setDeletedSpot] = useState(null);
-  const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false)
 
   const { id } = useParams();
@@ -29,19 +28,13 @@ const UserListings = ({ spots, user }) => {
 
   useEffect(() => {
     dispatch(getSpots())
-  }, [dispatch, showEditModal, showDeleteModal]);
+  }, [dispatch, showDeleteModal]);
 
   useEffect(() => {
     if (selectedSpot)
       setEditForm(true)
     setDeleteForm(false)
   }, [selectedSpot])
-
-  useEffect(() => {
-    if (!showEditModal) {
-      setSelectedSpot(null);
-    }
-  }, [showEditModal])
 
   useEffect(() => {
     if (deletedSpot)
@@ -70,11 +63,6 @@ const UserListings = ({ spots, user }) => {
     )
   }
 
-  const handleEditClick = (spot) => {
-    setSelectedSpot(spot);
-    setShowEditModal(true);
-  }
-
   const handleDeleteClick = (spot) => {
     setDeletedSpot(spot);
     setShowDeleteModal(true);
@@ -96,19 +84,7 @@ const UserListings = ({ spots, user }) => {
                   onClick={() => handleDeleteClick(spot)}
                   className='btn user-listing__btn'
                 >Remove Spot</button>
-                <button
-                  onClick={() => handleEditClick(spot)}
-                  className='btn user-listing__btn'
-                >Edit Spot</button>
-                {showEditModal && (
-                  <Modal onClose={() => setShowEditModal(false)}>
-                    <EditSpotForm
-                      spot={selectedSpot}
-                      showEditModal={showEditModal}
-                      setShowEditModal={setShowEditModal}
-                      user={user} />
-                  </Modal>
-                )}
+                <EditListingFormModal spot={spot} user={user}/>
                 {showDeleteModal && (
                   <Modal onClose={() => setShowDeleteModal(false)}>
                     <DeleteListingForm

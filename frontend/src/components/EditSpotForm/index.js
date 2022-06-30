@@ -7,7 +7,7 @@ import { editSpot } from '../../store/spots'
 // import EditImageForm from '../EditImageForm'
 import EditImageFormModal from '../EditImageForm';
 
-const EditSpotForm = ({ spot, visible, showEditModal, setShowEditModal, user }) => {
+const EditSpotForm = ({ spot, user }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,7 +20,7 @@ const EditSpotForm = ({ spot, visible, showEditModal, setShowEditModal, user }) 
   const [price, updatePrice] = useState(spot.price);
   const [valid, setValid] = useState(false);
 
-  if (!showEditModal) return null
+  const [showModal, setShowModal] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,85 +47,89 @@ const EditSpotForm = ({ spot, visible, showEditModal, setShowEditModal, user }) 
     if (updatedSpot) {
       setErrorMessages({});
       setValid(true)
-      return <EditImageFormModal/>
+      setShowModal(true);
     }
   }
 
   return (
-    showEditModal && !valid && (
-      <div className='edit-listing-container container'>
-        <h1 className='header-title'>Edit Your Spot</h1>
-        <form className='edit-listing' onSubmit={handleSubmit}>
-          <div className='edit-listing-form'>
-            <span className='edit-listing__input-container'>
-              <p>Address</p>
-              <input
-                className='edit-listing__input'
-                type='text'
-                required
-                value={address}
-                onChange={(e) => updateAddress(e.target.value)}
-              />
-            </span>
-            <span className='edit-listing__input-container'>
-              <p>City</p>
-              <input
-                className='edit-listing__input'
-                type='text'
-                required
-                value={city}
-                onChange={(e) => updateCity(e.target.value)}
-              />
-            </span>
-            <span className='edit-listing__input-container'>
-              <p>State</p>
-              <input
-                className='edit-listing__input'
-                type='text'
-                required
-                value={state}
-                onChange={(e) => updateState(e.target.value)}
-              />
-            </span>
-            <span className='edit-listing__input-container'>
-              <p>Country</p>
-              <input 
-              className='edit-listing__input' 
-              type='text' 
-              placeholder='Country' 
-              value={country}
-              onChange={(e) => updateCountry(e.target.value)}>
-              </input>
-            </span>
-            <span className='edit-listing__input-container'>
-              <p>Name</p>
-              <input
-                className='edit-listing__input'
-                type='text'
-                required
-                value={name}
-                onChange={(e) => updateName(e.target.value)}
-              />
-            </span>
-            <span className='edit-listing__input-container'>
-              <p>Price</p>
-              <input
-                className='edit-listing__input'
-                type='number'
-                required
-                value={price}
-                onChange={(e) => updatePrice(e.target.value)}
-              />
-            </span>
-        
-            <div className='edit-listing__btn-container'>
-              <button className='edit-listing-form__btn btn' type="submit">Save and Edit Photos</button>
-              <button className='edit-listing-form__btn btn' onClick={() => setShowEditModal(false)}>Cancel</button>
+    <>
+      {!valid && (
+        <div className='edit-listing-container container'>
+          <h1 className='header-title'>Edit Your Spot</h1>
+          <form className='edit-listing' onSubmit={handleSubmit}>
+            <div className='edit-listing-form'>
+              <span className='edit-listing__input-container'>
+                <p>Address</p>
+                <input
+                  className='edit-listing__input'
+                  type='text'
+                  required
+                  value={address}
+                  onChange={(e) => updateAddress(e.target.value)}
+                />
+              </span>
+              <span className='edit-listing__input-container'>
+                <p>City</p>
+                <input
+                  className='edit-listing__input'
+                  type='text'
+                  required
+                  value={city}
+                  onChange={(e) => updateCity(e.target.value)}
+                />
+              </span>
+              <span className='edit-listing__input-container'>
+                <p>State</p>
+                <input
+                  className='edit-listing__input'
+                  type='text'
+                  required
+                  value={state}
+                  onChange={(e) => updateState(e.target.value)}
+                />
+              </span>
+              <span className='edit-listing__input-container'>
+                <p>Country</p>
+                <input
+                  className='edit-listing__input'
+                  type='text'
+                  placeholder='Country'
+                  value={country}
+                  onChange={(e) => updateCountry(e.target.value)}>
+                </input>
+              </span>
+              <span className='edit-listing__input-container'>
+                <p>Name</p>
+                <input
+                  className='edit-listing__input'
+                  type='text'
+                  required
+                  value={name}
+                  onChange={(e) => updateName(e.target.value)}
+                />
+              </span>
+              <span className='edit-listing__input-container'>
+                <p>Price</p>
+                <input
+                  className='edit-listing__input'
+                  type='number'
+                  required
+                  value={price}
+                  onChange={(e) => updatePrice(e.target.value)}
+                />
+              </span>
+
+              <div className='edit-listing__btn-container'>
+                <button className='edit-listing-form__btn btn' type="submit">Save and Edit Photos</button>
+                <button className='edit-listing-form__btn btn'>Cancel</button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>)
-      
+          </form>
+        </div>)}
+      {showModal && (
+        <EditImageFormModal spot={spot} />
+      )}
+    </>
   )
 };
 
