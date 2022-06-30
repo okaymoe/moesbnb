@@ -1,0 +1,40 @@
+.comment-header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+  }
+  .comment-header > *{
+    margin-left: 10px;
+    border: solid 1px black;
+  }
+  .profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+  
+  .comment-content{
+    margin-left: 70px;
+    color: rgba(0, 0, 0, 0.807);
+    border: solid 1px black;
+  }
+  
+  .delete-btn{
+    background-color: transparent;
+    border: none;
+    /* position: absolute; */
+    /* right: 10px; */
+    /* top: 10px; */
+  }
+  .single-comment{
+    background-color: black;
+  }
+  .chatIcon{
+    background-color: transparent;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,35 @@
+.user-listings__main {
+  display: flex;
+}
+
+
+.user-listing__btn {
+  align-self: center
+}
+
+.user-listing__btn-container {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.user-listing__btn {
+  margin: 1em;
+  padding: .5em
+}
+
+.user-listings__grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 16px;
+}
+
+.user-listings__cards {
+  padding: .5em;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2);
+}

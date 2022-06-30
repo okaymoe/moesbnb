@@ -14,30 +14,3 @@
     padding-bottom: 40px;
     width: 300px;
 }
-
-.searchdatescontainer {
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    font-weight: 900;
-    text-transform: inherit;
-    text-align: center;
-    height: 30px;
-}
-
-.banner_searchButton {
-    flex-direction: column;
-    background-color: white;
-    border: 1px solid rgb(214, 213, 213);
-    border-radius: 999px;
-    color: #FF5A5F;
-    font-weight: 900;
-    text-transform: inherit;
-    text-align: center;
-    height: 25px;
-
-}
-
-.banner_searchButton:hover {
-    background-color: #FF5A5F;
-    color: white;
-}

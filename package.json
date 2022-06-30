@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/okaymoe/authenticate-me#readme",
   "dependencies": {
+    "express-async-handler": "^1.2.0",
     "react-date-range": "^1.4.0"
   }
 }

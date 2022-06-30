@@ -1,0 +1,42 @@
+.edit-listing-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  min-width: 30em;
+}
+
+.edit-listing-form {
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-listing__input {
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: right;
+}
+
+.edit-listing-form__btn {
+  max-width: 100%;
+  margin: 1em;
+}
+.edit-listing__input-label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.edit-listing__btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-listing__input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,21 @@
+.edit-booking-link__button-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 7em;
+  }
+  
+  .edit-booking_link__input {
+    min-width: 25em;
+  }
+  
+  .remove-booking-link__button {
+    position: absolute;
+    padding: .75em;
+    right: 1em;
+    border-radius: .5em;
+  }
+  
+  .edit-booking-link__image {
+    max-width: 3.5em;
+  }

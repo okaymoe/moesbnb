@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { NavLink, Link } from 'react-router-dom';
+import "./ProfileButton.css"
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -30,18 +32,26 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+      <div>
+      <button className="navButton" onClick={openMenu}>
+        <span>
+          <img id="avi" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="menu"/>
+        </span>
+        </button>
+        {showMenu && (
+        <ul className="navbar__profile-dropdown">
+          <li className='navbar__user-info'>Hi {user.username}!</li>
+          <li className='navbar__user-info navbar__underline'>{user.email}</li>
+          <li className='navbar__dropdown-links navbar__dropdown--nav' key={`newSpot`}><Link className='navbar__dropdown--nav'to='/spots'>Host your Spot</Link></li>
+          <li className='navbar__dropdown-links navbar__dropdown--nav' key={`mySpot`}><Link className='navbar__dropdown--nav'to={`/users/${user.id}/spots`}>Your spots</Link></li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className="logoutbutton" onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}
+      
+      </div>
+      
     </>
   );
 }

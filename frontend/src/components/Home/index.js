@@ -12,13 +12,13 @@ function Home() {
             <div className='home__section'>
             <Card
                 src="https://media.nomadicmatt.com/2019/airbnb_breakup3.jpg"
-                title="3 Bedroom Flat in Bournemouth"
+                title="3 Bedroom Apartment in Chicago"
                 description="Superhost with a stunning view of the beachside in Sunny Bournemouth"
                 price="$130/night"
             />
             <Card
                 src="https://thespaces.com/wp-content/uploads/2017/08/Courtesy-of-Airbnb.jpg"
-                title="Penthouse in London"
+                title="Penthouse in New York City"
                 description="Enjoy the amazing sights of London with this stunning penthouse"
                 price="$350/night"
             />

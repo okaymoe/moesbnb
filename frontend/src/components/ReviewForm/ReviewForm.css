@@ -1,0 +1,16 @@
+.create-comment-submit{
+    background-color: transparent;
+    border: none;
+    margin: 0 20px;
+    cursor: pointer;
+   }
+   .create-comment-cancel{
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   }
+   .create-comment-input{
+     border-radius: 5px;
+     margin-bottom: 20px;
+   }
+   

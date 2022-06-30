@@ -1,0 +1,59 @@
+.listing-form__page {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.listing-form__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.listing-form__header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 600;
+  padding: 1em;
+}
+
+
+.listing-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-form {
+  min-width: 60em;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listing-form__input {
+  margin: 1em;
+  padding: 1em;
+  min-width: 50%;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+}
+
+.listing-form__input:focus {
+  outline: none
+}
+
+.listing-form__btn {
+  margin: 2em;
+  min-width: 35%;
+}
+
+
+.listing-form__header {
+  margin-bottom: 2em;
+}
