@@ -103,10 +103,7 @@ export const deleteSpot = (id) => async dispatch => {
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'DELETE'
   });
-  console.log('ARE WE HERE THO?!?!?!?!?')
-  console.log('ARE WE HERE THO?!?!?!?!?')
-  console.log('ARE WE HERE THO?!?!?!?!?')
-  console.log('ARE WE HERE THO?!?!?!?!?')
+
   if (response.ok) {
     const deletedSpot = await response.json();
     dispatch(removeSpot(deletedSpot));

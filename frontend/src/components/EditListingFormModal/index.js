@@ -11,7 +11,7 @@ function EditListingFormModal({spot, user}) {
       <button className='edit-listing-btn__modal btn' onClick={() => setShowEditModal(true)}>Edit Spot</button>
       {showEditModal && (
         <Modal onClose={() => setShowEditModal(false)}>
-          <EditSpotForm spot={spot} user={user}/>
+          <EditSpotForm spot={spot} user={user} setTrigger={setShowEditModal}/>
         </Modal>
       )}
     </>

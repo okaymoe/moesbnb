@@ -7,7 +7,7 @@ import { editSpot } from '../../store/spots'
 // import EditImageForm from '../EditImageForm'
 import EditImageFormModal from '../EditImageForm';
 
-const EditSpotForm = ({ spot, user }) => {
+const EditSpotForm = ({ spot, user, setTrigger }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -127,7 +127,7 @@ const EditSpotForm = ({ spot, user }) => {
           </form>
         </div>)}
       {showModal && (
-        <EditImageFormModal spot={spot} />
+        <EditImageFormModal spot={spot} setTrigger={setShowModal} setOuterTrigger={setShowModal} />
       )}
     </>
   )

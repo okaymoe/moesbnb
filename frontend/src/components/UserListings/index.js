@@ -11,7 +11,7 @@ import UnauthorizedUser from '../UnauthorizedUser';
 import { Modal } from '../../context/Modal';
 
 
-const UserListings = ({ spots, user }) => {
+const UserListings = ({ spots, user, setTrigger }) => {
   const dispatch = useDispatch()
   const [editForm, setEditForm] = useState(false);
   const [deleteForm, setDeleteForm] = useState(false);

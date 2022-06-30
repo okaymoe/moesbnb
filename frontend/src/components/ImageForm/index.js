@@ -10,14 +10,8 @@ const ImageForm = ({ spotId, user }) => {
   const dispatch = useDispatch();
   const [imageURLs, setImageURLs] = useState([
     { url: "" },
-    { url: "" },
-    { url: "" },
   ]);
   const [created, setCreated] = useState(false);
-
-  const userSpots = useSelector(state => state.spots.spots.filter(spot => {
-    return spot.userId === user.id;
-  }));
 
   const handleChange = (i, e) => {
     let newFormValues = [...imageURLs];
@@ -68,7 +62,7 @@ const ImageForm = ({ spotId, user }) => {
 
   return (
       <>
-      <p className='header-title listing-form__image-title'>Please add at least three images of your home</p>
+      <p className='header-title listing-form__image-title'>Please add at least one image of your home</p>
       <form onSubmit={handleSubmit} autoComplete="off" className='listing-form__image-container container'>
         {imageURLs.map((element, index) => (
           <div className='booking-link__container' key={index}>
@@ -89,7 +83,7 @@ const ImageForm = ({ spotId, user }) => {
         ))}
         <div className='booking-link__button-container'>
           <button className='booking-link__button btn' type="button" onClick={() => addFormFields()}>Add Another Photo</button>
-          <button className='booking-link__button btn' type="submit" disabled={imageURLs.length < 3}>Submit</button>
+          <button className='booking-link__button btn' type="submit" disabled={imageURLs.length < 1}>Submit</button>
         </div>
       </form>
       </>
