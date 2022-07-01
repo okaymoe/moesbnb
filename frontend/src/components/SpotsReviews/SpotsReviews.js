@@ -10,32 +10,14 @@ const SpotsReviews = () => {
   const {id} = useParams();
   const spot = useSelector((state) => state.spots[id])
   console.log(spot, 'spot')
-  // const reviews = useSelector((state) => {
 
-  //   if (!spot.reviews) return null;
-  //   // console.log(spot.reviews)
-  //   return state.reviews.map(reviewId => state.reviews[reviewId]);
-  // });
   const reviews = useSelector((state) => state.reviews )
-
-  // console.log(reviews)
-
-  
-
-  // const filteredReviews = Object.values(reviews).filter(review => review !== null)
-
-  // console.log(filteredReviews)
 
   const user = useSelector(state => {
     if (state.session.user) {
       return state.session.user
     }
   })
-
-  // const reviewss = useSelector(state => {
-
-  //   }
-  // })
 
   const dispatch = useDispatch();
   useEffect(() => {

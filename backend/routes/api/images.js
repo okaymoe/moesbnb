@@ -22,4 +22,23 @@ router.post('/:id', asyncHandler(async function (req, res, next) {
   return res.json(images);
 }));
 
+// router.get('/api/images/:spotId', asyncHandler(async (req, res) => {
+//   const image = await Image.findAll({
+//     where
+//   })
+
+//   return res.json(reviews);
+// }));
+
+
+router.get('/images/:spotId', asyncHandler(async (req, res) => {
+  const image = await Image.findAll({
+    where: { 
+      spotId: req.params.spotId
+    }
+  });
+  console.log(image, "222222222222222222222222222222222222")
+  return res.json(image)
+}))
+
 module.exports = router;

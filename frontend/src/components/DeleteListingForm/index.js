@@ -6,14 +6,9 @@ import { useState, useEffect } from 'react';
 
 const DeleteListingForm = ({ spot, visible, showDeleteModal, setShowDeleteModal, user }) => {
 
-  // console.log('listing here', listing)
-  const [deleted, setDeleted] = useState(false);
-  // const [showConfirmation, setShowConfirmation] = useState(false)
-  const dispatch = useDispatch();
 
-  // const userSpots = useSelector(state => state.spots.filter(spot => {
-  //   return spot.userId === user.id;
-  // }));
+  const [deleted, setDeleted] = useState(false);
+  const dispatch = useDispatch();
 
   const history = useHistory();
 

@@ -64,16 +64,10 @@ const EditImageForm = ({ spot, setTrigger, setOuterTrigger }) => {
        console.log("result of thunk", newPhotos)
     }
 
-    // try {
-    //   updatedImages = await dispatch(editImages(updatedPayload, id))
-    // } catch (error) {
-    //   // TODO error handle
-    // }
-
     setUpdated(true)
     setTrigger(false)
     setOuterTrigger(false)
-    // history.push(`/users/${sessionUser.id}/spots`)
+
   }
   const reset = () => {
     setImageURLs([{ url: "" }]);

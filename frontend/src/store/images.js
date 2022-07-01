@@ -40,8 +40,20 @@ export const createNewImages = (payload, id) => async dispatch => {
   }
 }
 
+export const getAllImages = spotId => async dispatch => {
+  console.log(spotId, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+  const response = await csrfFetch(`/api/images/${spotId}`, {
+    method: 'GET',
+  });
+  if (response.ok) {
+    const images = await response.json();
+    dispatch(getImages(images))
+    return images;
+  }
+}
+
 export const editImages = (payload, id) => async dispatch => {
-  // console.log('editphots: ', payload)
+  
   const response = await csrfFetch(`/api/spots/${id}/images`, {
     method: 'PUT',
     headers: {

@@ -64,7 +64,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
   router.get('/:id/reviews', asyncHandler(async function(req, res) {
     const id = req.params.id
-    console.log(id)
+
     const reviews = await Review.findAll({
       where: {
         spotId: id
@@ -72,11 +72,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       include: User
     });
     console.log(reviews)
-    console.log('data get reviews!!!!!!!!!!!!!!!!!!!!!')
-    console.log('data get reviews!!!!!!!!!!!!!!!!!!!!!')
-    console.log('data get reviews!!!!!!!!!!!!!!!!!!!!!')
-    console.log('data get reviews!!!!!!!!!!!!!!!!!!!!!')
-    console.log('data get reviews!!!!!!!!!!!!!!!!!!!!!')
+
     return res.json(reviews);
   }));
   return res.json(spot);
@@ -143,7 +139,6 @@ router.post('/:id(\\d+)/images', asyncHandler(async function (req, res, next) {
 }));
 
 router.put('/:id(\\d+)/images', asyncHandler(async function (req, res, next) {
-  // console.log('put', req.body)
   req.body.updatedPhotos.forEach(async item => {
     await Image.update(item, {
       where: { id: item.id }

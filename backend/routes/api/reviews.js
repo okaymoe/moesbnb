@@ -41,7 +41,6 @@ router.get('/:spotId', asyncHandler(async (req, res) => {
       spotId,
       comment: reviewComment,
     });
-    // const newReview = await Review.findByPk(review.id, {include: User})
   return res.json(review);
   }));
   
