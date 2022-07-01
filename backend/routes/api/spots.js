@@ -102,15 +102,10 @@ router.post('/', validateSpot, asyncHandler(async function (req, res, next) {
     name,
     price,
   });
-  // const newSpot = await Spot.findOne({
-  //   where: {id: {[Op.eq]:spot.id}},
-  //   include: [{model: Image, where: {spotId: {[Op.eq]:spot.id}}}]
-  // })
   const newSpot = await Spot.findOne({
     where: {id: spot.id},
     include: [{model: Image}]
   });
-  console.log( "\n\n" , newSpot, "\n\n")
 
   return res.json(newSpot);
 }));
@@ -129,32 +124,11 @@ router.delete('/:id(\\d+)', asyncHandler(async function (req, res) {
   const spot = await Spot.findByPk(id);
   if (spot) {
     await spot.destroy();
-    return res.json(spot.id)
+    return res.json(id)
   } else {
     throw new Error('Spot could not be found')
   }
 }));
 
-router.post('/:id(\\d+)/images', asyncHandler(async function (req, res, next) {
-  if (req.body.newImages) {
-    req.body.newImages.forEach(async item => {
-      await Image.create(item);
-    })
-    return res.json(req.body.newImages);
-  } else {
-    req.body.imageURLs.forEach(async item => {
-      await Image.create(item);
-    })
-    return res.json(req.body.imageURLs);
-  }
-}));
 
-router.put('/:id(\\d+)/images', asyncHandler(async function (req, res, next) {
-  req.body.updatedPhotos.forEach(async item => {
-    await Image.update(item, {
-      where: { id: item.id }
-    })
-  })
-  return res.json(req.body.updatedPhotos);
-}));
 module.exports = router;

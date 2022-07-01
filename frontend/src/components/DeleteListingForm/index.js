@@ -13,9 +13,9 @@ const DeleteListingForm = ({ spot, visible, showDeleteModal, setShowDeleteModal,
   const history = useHistory();
 
 
-  useEffect(() => {
-    dispatch(getSpots())
-  }, [deleted]);
+  // useEffect(() => {
+  //   dispatch(getSpots())
+  // }, [deleted]);
 
   if (!showDeleteModal) return null;
   if (!spot) {
@@ -30,7 +30,7 @@ const DeleteListingForm = ({ spot, visible, showDeleteModal, setShowDeleteModal,
     }
     setDeleted(true);
     setShowDeleteModal(false);
-    history.push(`/users/${user.id}/spots`)
+    // history.push(`/users/${user.id}/spots`)
   };
 
   return (

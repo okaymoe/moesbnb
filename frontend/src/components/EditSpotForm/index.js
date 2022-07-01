@@ -20,8 +20,6 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
   const [price, updatePrice] = useState(spot.price);
   const [valid, setValid] = useState(false);
 
-  const [showModal, setShowModal] = useState(false)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,7 +45,7 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
     if (updatedSpot) {
       setErrorMessages({});
       setValid(true)
-      setShowModal(true);
+      setTrigger(false);
     }
   }
 
@@ -120,15 +118,13 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
               </span>
 
               <div className='edit-listing__btn-container'>
-                <button className='edit-listing-form__btn btn' type="submit">Save and Edit Photos</button>
+                <button className='edit-listing-form__btn btn' type="submit">Save</button>
                 <button className='edit-listing-form__btn btn'>Cancel</button>
               </div>
             </div>
           </form>
         </div>)}
-      {showModal && (
-        <EditImageFormModal spot={spot} setTrigger={setShowModal} setOuterTrigger={setTrigger} />
-      )}
+      
     </>
   )
 };

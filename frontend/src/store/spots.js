@@ -137,13 +137,10 @@ const spotsReducer = (state = initialState, action) => {
           reviews: action.reviews.map(review => review.id)
         }
       };
-    case CREATE_ONE:
-      if (!state[action.newSpot.id]) {
-        const newState = {
-          ...state,
-          [action.newSpot.id]: action.newSpot
-        }
-        return newState;
+    case CREATE_ONE: {
+      const newState = {...state};
+      newState[action.newSpot.id] = action.newSpot;
+      return newState;
       };
     case UPDATE_ONE:
       const updatedState = {
@@ -156,7 +153,7 @@ const spotsReducer = (state = initialState, action) => {
       return updatedState;
     case REMOVE_ONE:
       const newState = {...state};
-      delete newState[action.spotToRemove.id];
+      delete newState[action.spotToRemove];
       return newState;
     default:
       return state;
