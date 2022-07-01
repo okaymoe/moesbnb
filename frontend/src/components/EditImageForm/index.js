@@ -12,7 +12,7 @@ export default function EditImageFormModal({ spot, setTrigger, setOuterTrigger }
       setShowModal(false)
     }
     }>
-      <EditImageForm spot={spot} />
+      <EditImageForm spot={spot} setTrigger={setTrigger} setOuterTrigger={setOuterTrigger} />
     </Modal>
   )
 

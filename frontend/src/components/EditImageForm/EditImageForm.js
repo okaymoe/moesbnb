@@ -6,7 +6,7 @@ import { getSpots } from '../../store/spots';
 import { editImages, createNewImages } from '../../store/images'
 
 
-const EditImageForm = ({ spot }) => {
+const EditImageForm = ({ spot, setTrigger, setOuterTrigger }) => {
   const sessionUser = useSelector(state => state.session.user);
   const { id, Images } = spot
   const [updated, setUpdated] = useState(false);
@@ -59,21 +59,21 @@ const EditImageForm = ({ spot }) => {
     let newPhotos;
 
     if (newImages.length) {
-      try {
+      
         newPhotos = await dispatch(createNewImages(newImagePayload, id))
-      } catch (error) {
-        // TODO error handle
-      }
+       console.log("result of thunk", newPhotos)
     }
 
-    try {
-      updatedImages = await dispatch(editImages(updatedPayload, id))
-    } catch (error) {
-      // TODO error handle
-    }
+    // try {
+    //   updatedImages = await dispatch(editImages(updatedPayload, id))
+    // } catch (error) {
+    //   // TODO error handle
+    // }
 
     setUpdated(true)
-    history.push(`/users/${sessionUser.id}/spots`)
+    setTrigger(false)
+    setOuterTrigger(false)
+    // history.push(`/users/${sessionUser.id}/spots`)
   }
   const reset = () => {
     setImageURLs([{ url: "" }]);

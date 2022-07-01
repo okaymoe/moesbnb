@@ -127,7 +127,7 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
           </form>
         </div>)}
       {showModal && (
-        <EditImageFormModal spot={spot} setTrigger={setShowModal} setOuterTrigger={setShowModal} />
+        <EditImageFormModal spot={spot} setTrigger={setShowModal} setOuterTrigger={setTrigger} />
       )}
     </>
   )

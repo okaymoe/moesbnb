@@ -3,10 +3,17 @@ import { csrfFetch } from './csrf'
 
 export const CREATE_IMAGES = 'images/CREATE_IMAGES';
 export const EDIT_IMAGES = 'images/EDIT_IMAGES';
+export const GET_IMAGES = 'images/GET_IMAGES';
+
 
 export const createImages = newImages => ({
   type: CREATE_IMAGES,
   newImages
+});
+
+export const getImages = images => ({
+  type: GET_IMAGES,
+  images
 });
 
 export const editedImages = updatedImages => ({
@@ -15,36 +22,21 @@ export const editedImages = updatedImages => ({
 });
 
 export const createNewImages = (payload, id) => async dispatch => {
-  try {
-    const response = await csrfFetch(`/api/spots/${id}/images`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload)
-    });
 
-    if (!response.ok) {
-      let error;
-      if (response.status === 422) {
-        error = await response.json();
-        throw new ValidationError(error.errors, response.statusText);
-      } else {
-        let errorJSON;
-        error = await response.text();
-        try {
-          errorJSON = JSON.parse(error);
-        } catch {
-          throw new Error(error);
-        }
-        throw new Error(`${errorJSON.title}: ${errorJSON.message}`);
-      }
-    }
+  const response = await csrfFetch(`/api/images/${id}`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+
     const images = await response.json();
+    console.log("Images from response", images)
     dispatch(createImages(images));
     return images;
-  } catch (error) {
-    throw error;
   }
 }
 
@@ -72,6 +64,8 @@ const imagesReducer = (state = {}, action) => {
       action.newImages.forEach(newImage => {
         allImages[newImage.id] = newImage;
       });
+      console.log("this is all the images", allImages)
+      console.log("this is the action", action)
       return {
         ...allImages,
         ...state
@@ -84,6 +78,16 @@ const imagesReducer = (state = {}, action) => {
       });
       return {
         ...editedImages,
+        ...state
+      };
+    case GET_IMAGES:
+
+      const getImages = {}
+      action.images.forEach(image => {
+        getImages[image.id] = image
+      });
+      return {
+        ...getImages,
         ...state
       };
     default:

@@ -1,19 +1,19 @@
+import { useSelector, useDispatch } from 'react-redux';
 import './DetailPhotoDisplay.css'
+import { useEffect } from 'react';
 
-const DetailPhotoDisplay = ({ spot }) => {
-  const { Images } = spot
 
-  const firstImage = Images[0].url;
-  const display = []
+const DetailPhotoDisplay = ({spot}) => {
+  const images = useSelector(state => state.images)
+  const dispatch = useDispatch()
 
-  for (let i = 1; i < 5; i++) {
-    display.push(Images[i]);
-  }
+//object.values on images above -- imagesArray -> map below over imagesArray
+
 
 
   return (
        <div className="listing-photos container">
-    {Images.map(image => (
+    {images.map(image => (
       <div className='listing-photos__main'>
         <figure
           className='listing-photos__main-image card__image'

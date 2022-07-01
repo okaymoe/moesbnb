@@ -6,16 +6,20 @@ const { isCurrentUser } = require('../../utils/auth');
 
 const { Spot, Image } = require('../../db/models');
 
-router.post('/', validateSpot, asyncHandler(async function (req, res, next) {
+const router = express.Router();
+
+router.post('/:id', asyncHandler(async function (req, res, next) {
   const currentUser = isCurrentUser(req);
 
-  const {url} = req.body;
-
-  const spot = await Spot.create({
-    userId: currentUser.id,
-    url
-  });
-  return res.json(spot);
+  const images = [];
+  const {newImages} = req.body;
+  for (let i=0; i<newImages.length; i++){
+    const image = newImages[i];
+    const newImage = await Image.create(image);
+    images.push(newImage);
+  }
+  console.log("dslkfhldskfhjlsdkfjs;ldkfjl;sdkfjlsdkfjlsdkfjlsdkfjsldkfjlsdkjflksdjfldskjfsldkf", images)
+  return res.json(images);
 }));
 
 module.exports = router;
