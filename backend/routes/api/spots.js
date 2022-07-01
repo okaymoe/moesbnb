@@ -102,10 +102,16 @@ router.post('/', validateSpot, asyncHandler(async function (req, res, next) {
     name,
     price,
   });
+  // const newSpot = await Spot.findOne({
+  //   where: {id: {[Op.eq]:spot.id}},
+  //   include: [{model: Image, where: {spotId: {[Op.eq]:spot.id}}}]
+  // })
   const newSpot = await Spot.findOne({
-    where: {id: {[Op.eq]:spot.id}},
-    include: [{model: Image, where: {spotId: {[Op.eq]:spot.id}}}]
-  })
+    where: {id: spot.id},
+    include: [{model: Image}]
+  });
+  console.log( "\n\n" , newSpot, "\n\n")
+
   return res.json(newSpot);
 }));
 
