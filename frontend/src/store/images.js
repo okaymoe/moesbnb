@@ -21,14 +21,14 @@ export const editedImages = updatedImages => ({
   updatedImages
 });
 
-export const createNewImages = (payload, id) => async dispatch => {
+export const createNewImages = (newImages, id) => async dispatch => {
 
   const response = await csrfFetch(`/api/images/${id}`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(newImages)
   });
 
   if (response.ok) {

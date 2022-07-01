@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { isCurrentUser } = require('../../utils/auth');
+const { Op } = require('sequelize');
 
 // const { getUserToken } = require("../auth");
 
@@ -101,7 +102,11 @@ router.post('/', validateSpot, asyncHandler(async function (req, res, next) {
     name,
     price,
   });
-  return res.json(spot);
+  const newSpot = await Spot.findOne({
+    where: {id: {[Op.eq]:spot.id}},
+    include: [{model: Image, where: {spotId: {[Op.eq]:spot.id}}}]
+  })
+  return res.json(newSpot);
 }));
 
 router.put('/:id(\\d+)', validateSpot, asyncHandler(async function (req, res, next) {

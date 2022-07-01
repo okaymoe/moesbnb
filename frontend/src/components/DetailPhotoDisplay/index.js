@@ -1,17 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import './DetailPhotoDisplay.css'
 import { useEffect } from 'react';
-import { getImages } from '../../store/images';
+import { getAllImages } from '../../store/images';
 
 
 const DetailPhotoDisplay = ({spot}) => {
-  const images = useSelector(state => state.images)
+  const imagesObj = useSelector(state => state.images)
   const dispatch = useDispatch()
 
+  const images = Object.values(imagesObj || {})
 //object.values on images above -- imagesArray -> map below over imagesArray
 
 useEffect(() => {
-  dispatch(getImages(spot.id));
+  dispatch(getAllImages(spot.id));
 }, [dispatch]);
 
   return (

@@ -12,9 +12,9 @@ router.post('/:id', asyncHandler(async function (req, res, next) {
   const currentUser = isCurrentUser(req);
 
   const images = [];
-  const {newImages} = req.body;
-  for (let i=0; i<newImages.length; i++){
-    const image = newImages[i];
+  const {imageURLs} = req.body;
+  for (let i=0; i<imageURLs.length; i++){
+    const image = imageURLs[i];
     const newImage = await Image.create(image);
     images.push(newImage);
   }
@@ -31,7 +31,7 @@ router.post('/:id', asyncHandler(async function (req, res, next) {
 // }));
 
 
-router.get('/images/:spotId', asyncHandler(async (req, res) => {
+router.get('/:spotId', asyncHandler(async (req, res) => {
   const image = await Image.findAll({
     where: { 
       spotId: req.params.spotId
