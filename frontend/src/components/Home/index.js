@@ -21,7 +21,6 @@ const Home = () => {
 
 
   return (
-    sessionUser &&
     <div>
         <div>
             <Banner/>

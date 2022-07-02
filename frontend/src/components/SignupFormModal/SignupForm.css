@@ -1,6 +1,9 @@
-#loginbutton {
+#signupbutton {
+    position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     background-color: #ff7070;
     color: rgb(255, 255, 255);
     font-size: 16px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { getSpots } from './store/spots'
-import SignupFormPage from "./components/SignupFormPage";
+import SignupFormPage from "./components/SignupFormModal";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SpotForm from "./components/SpotForm";
@@ -42,11 +42,8 @@ function App() {
             </Route>
             <Route exact path={'/spots'}>
               <SpotForm />
-              
             </Route>
-            <Route path="/signup">
-              <SignupFormPage />
-            </Route>
+          
             <Route exact path={'/users/:id/spots'}>
               <UserSpots spots={spots.spots} user={sessionUser} />
             </Route>
