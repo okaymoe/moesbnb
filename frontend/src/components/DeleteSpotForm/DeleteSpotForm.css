@@ -1,0 +1,16 @@
+.delete-listing__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+  text-align: center;
+}
+
+.delete-listing__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.delete-listing__btn {
+  margin: 2em 3em .5em;
+}

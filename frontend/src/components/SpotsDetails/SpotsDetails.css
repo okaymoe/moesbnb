@@ -1,0 +1,16 @@
+.spot_display-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: large;
+}
+
+.spot-header-title {
+text-align: center;
+}
+
+.spot-header-address {
+  text-align: center;
+}
+
+.spot-header-cost {
+  text-align: center;
+}

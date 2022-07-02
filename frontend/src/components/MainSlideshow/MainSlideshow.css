@@ -1,0 +1,16 @@
+
+.carousel .control-next.control-arrow {
+    right: 0;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+  
+  .carousel .control-prev.control-arrow {
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+  }
+  
+  .main__carousel {
+    border-radius: .6em;
+    overflow: hidden;
+  }

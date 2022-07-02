@@ -1,0 +1,29 @@
+.create-comment-submit{
+    background-color: rgb(255, 98, 98);
+    border-radius: 10px;
+    color: white;
+    border: none;
+    margin: 0 20px;
+    cursor: pointer;
+    padding: 5px;
+   }
+.create-comment-cancel{
+  background-color: rgb(255, 98, 98);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  margin: 0 20px;
+  cursor: pointer;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  }
+
+.create-comment-input{
+  padding: 8px;
+  border-radius: 5px;
+  border-color: rgb(255, 98, 98);
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+   

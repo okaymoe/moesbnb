@@ -9,34 +9,22 @@
     width: 100%;
 }
 
-.logo {
+#logo {
+    display: flex;
+    align-items: center;
     object-fit: contain;
     height: 100px;
     margin-left: 20px;
+    font-size: x-large;
+    font-weight: 800;
+    color: #FF5A5F;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
 
-.nav_center {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    max-width: fit-content;
-    padding: 10px;
-    height: 30px;
-    border: 1px solid rgb(214, 213, 213);
-    border-radius: 999px;
-}
 
-.nav_center > input {
-    border: none;
-    width: 200px;
-    padding: 10px;
-    outline-width: 0;
-}
 
-.nav_right {
-    display: flex;
-    align-items:flex-end;
-}
 
 .nav_button {
     display: flex;

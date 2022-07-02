@@ -44,10 +44,12 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.NUMERIC,
       allowNull: false
      },
+     
   }, {});
   Spot.associate = function(models) {
     Spot.belongsTo(models.User, { foreignKey: 'userId' })
     Spot.hasMany(models.Image, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true })
+    Spot.hasMany(models.Review, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true })
   };
   return Spot;
 };
