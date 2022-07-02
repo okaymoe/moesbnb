@@ -50,6 +50,17 @@ export const getOneSpot = (id) => async dispatch => {
   }
 }
 
+
+// export const createNewSpot = (payload) => async dispatch => {
+//   const response = await csrfFetch(`/api/spots`);
+
+//   if (response.ok) {
+//     const spot = await response.json();
+//     dispatch(createOne(spot));
+//     return spot;
+//   }
+// }
+
 export const createNewSpot = (payload) => async dispatch => {
   try {
     const response = await csrfFetch(`/api/spots`, {

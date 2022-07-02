@@ -21,6 +21,9 @@ export const editedImages = updatedImages => ({
   updatedImages
 });
 
+
+
+
 export const createNewImages = (newImages, id) => async dispatch => {
 
   const response = await csrfFetch(`/api/images/${id}`, {
