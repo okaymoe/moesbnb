@@ -1,4 +1,4 @@
-import './UserListings.css'
+import './UserSpots.css'
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -6,12 +6,11 @@ import { getSpots } from '../../store/spots'
 import SpotCard from '../SpotCard';
 import EditListingFormModal from '../EditListingFormModal';
 import DeleteListingForm from '../DeleteListingForm';
-// import NoListingsCard from '../NotListingsCard';
 import UnauthorizedUser from '../UnauthorizedUser';
 import { Modal } from '../../context/Modal';
 
 
-const UserListings = ({ spots, user, setTrigger }) => {
+const UserSpots = ({ spots, user, setTrigger }) => {
   const dispatch = useDispatch()
   const [editForm, setEditForm] = useState(false);
   const [deleteForm, setDeleteForm] = useState(false);
@@ -102,4 +101,4 @@ const UserListings = ({ spots, user, setTrigger }) => {
     </div>
   );
 }
-export default UserListings;
+export default UserSpots;

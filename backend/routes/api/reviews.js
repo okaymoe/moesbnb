@@ -22,7 +22,6 @@ router.get('/', asyncHandler(async (_req, res) => {
 //get comments router
 router.get('/:spotId', asyncHandler(async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId)
-    console.log(spot);
     const id = req.params.spotId
     const reviews = await Review.findAll();
     return res.json(reviews);
@@ -47,8 +46,7 @@ router.get('/:spotId', asyncHandler(async (req, res) => {
   //delete comment
   router.delete('/:spotId/reviews/:id', /*have to validate*/ asyncHandler(async function (req, res) {
     const {id} = req.params;
-    console.log(req.params)
-    console.log("dfkgjldkfjsl;kdfjlsdkfjlsdkfjsdf", id)
+
     const review = await Review.findByPk(id);
     await review.destroy();
     return res.json({id});

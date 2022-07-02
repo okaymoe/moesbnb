@@ -18,7 +18,6 @@ router.post('/:id', asyncHandler(async function (req, res, next) {
     const newImage = await Image.create(image);
     images.push(newImage);
   }
-  console.log("dslkfhldskfhjlsdkfjs;ldkfjl;sdkfjlsdkfjlsdkfjlsdkfjsldkfjlsdkjflksdjfldskjfsldkf", images)
   return res.json(images);
 }));
 
@@ -37,7 +36,6 @@ router.get('/:spotId', asyncHandler(async (req, res) => {
       spotId: req.params.spotId
     }
   });
-  console.log(image, "222222222222222222222222222222222222")
   return res.json(image)
 }))
 

@@ -61,7 +61,6 @@ const EditImageForm = ({ spot, setTrigger, setOuterTrigger }) => {
     if (newImages.length) {
       
         newPhotos = await dispatch(createNewImages(newImagePayload, id))
-       console.log("result of thunk", newPhotos)
     }
 
     setUpdated(true)

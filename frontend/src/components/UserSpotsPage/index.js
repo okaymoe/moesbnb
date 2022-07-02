@@ -19,8 +19,6 @@ const UserSpotsPage = ({ spots, user }) => {
           <div className="user-listing">
             <Card userSpotRendered={userSpotRendered} spot={spot} cname={cname}/>
             <div className="user-listing-btns">
-              {/* <EditListingModal /> */}
-              {/* <button onClick={editListing} className='edit-listing'>Edit</button> */}
               <button className='delete-listing'>Delete</button>
             </div>
           </div>

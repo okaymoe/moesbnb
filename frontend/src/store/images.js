@@ -37,14 +37,12 @@ export const createNewImages = (newImages, id) => async dispatch => {
   if (response.ok) {
 
     const images = await response.json();
-    console.log("Images from response", images)
     dispatch(createImages(images));
     return images;
   }
 }
 
 export const getAllImages = spotId => async dispatch => {
-  console.log(spotId, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
   const response = await csrfFetch(`/api/images/${spotId}`, {
     method: 'GET',
   });
@@ -79,8 +77,6 @@ const imagesReducer = (state = {}, action) => {
       action.newImages.forEach(newImage => {
         allImages[newImage.id] = newImage;
       });
-      console.log("this is all the images", allImages)
-      console.log("this is the action", action)
       return {
         ...allImages,
         ...state

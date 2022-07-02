@@ -9,7 +9,7 @@ const SpotsReviews = () => {
   const [showReviewForm, setShowReviewForm] = useState(false)
   const {id} = useParams();
   const spot = useSelector((state) => state.spots[id])
-  console.log(spot, 'spot')
+
 
   const reviews = useSelector((state) => state.reviews )
 

@@ -72,7 +72,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       },
       include: User
     });
-    console.log(reviews)
 
     return res.json(reviews);
   }));

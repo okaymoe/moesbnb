@@ -46,7 +46,6 @@ export const createReview = (data) => async (dispatch) => {
   });
 
     const newReview = await response.json()
-    console.log(newReview);
     dispatch(add(newReview))
     return newReview
 }
