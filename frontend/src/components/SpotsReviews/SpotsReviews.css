@@ -3,6 +3,7 @@
     align-items: center;
     padding: 10px;
     position: relative;
+    font-weight: bold;
   }
   .comment-header > *{
     margin-left: 10px;
@@ -16,9 +17,15 @@
   }
   
   .comment-content{
+    display: flex;
     margin-left: 70px;
     color: rgba(0, 0, 0, 0.807);
-    border: solid 1px black;
+    border: solid 1px #ff484e;;
+    height: 40px;
+    align-items: center;
+    padding: 1px;
+    margin-bottom: 10px;
+ 
   }
   
   .delete-btn{
@@ -36,5 +43,11 @@
     border: none;
     font-size: 10px;
     cursor: pointer;
+  }
+
+  #writeareview {
+    font-size: large;
+    color: #ff484e;
+    font-weight:bold;
   }
   

@@ -8,6 +8,7 @@
 
 .listing-photos__main {
   margin: .25em;
+  
 }
 
 .listing-photos__sub {
@@ -16,6 +17,14 @@
 }
 
 .listing-photos__main-image {
+  border-radius: 70px;
+  float: left;
+  padding: .25em;
+  max-width: 70%;
+  height: auto;
+  flex: 0 0 50%;
+  text-decoration: none;
+  list-style: none;
   border-radius: 70px;
 }
 

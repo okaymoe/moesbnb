@@ -28,7 +28,7 @@ const SpotsReviews = () => {
   return (
     <>
       <button className="chatIcon" onClick={() => setShowReviewForm(true)}>
-        <p>Write a review...</p>
+        <p id="writeareview">Write a review...</p>
       </button>
       {showReviewForm ? (
         <ReviewForm spot={spot} setShowReviewForm={setShowReviewForm} />
