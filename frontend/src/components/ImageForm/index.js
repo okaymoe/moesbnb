@@ -63,7 +63,7 @@ const ImageForm = ({ spotId, user }) => {
 
   return (
       <>
-      <p className='header-title listing-form__image-title'>Please add one image of your home</p>
+      <p className='header-title listing-form__image-title'>Please add an image of your home</p>
       <form onSubmit={handleSubmit} autoComplete="off" className='listing-form__image-container container'>
         {imageURLs.map((element, index) => (
           <div className='booking-link__container' key={index}>

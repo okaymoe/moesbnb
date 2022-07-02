@@ -23,7 +23,6 @@ export const editedImages = updatedImages => ({
 
 
 
-
 export const createNewImages = (newImages, id) => async dispatch => {
 
   const response = await csrfFetch(`/api/images/${id}`, {
@@ -41,6 +40,7 @@ export const createNewImages = (newImages, id) => async dispatch => {
     return images;
   }
 }
+
 
 export const getAllImages = spotId => async dispatch => {
   const response = await csrfFetch(`/api/images/${spotId}`, {

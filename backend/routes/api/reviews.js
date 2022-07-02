@@ -23,7 +23,9 @@ router.get('/', asyncHandler(async (_req, res) => {
 router.get('/:spotId', asyncHandler(async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId)
     const id = req.params.spotId
-    const reviews = await Review.findAll();
+    const reviews = await Review.findAll({
+      include: User 
+    });
     return res.json(reviews);
   }));
   

@@ -9,7 +9,7 @@ const UnauthorizedUser = ({ type, userId }) => {
         <p className='header-title'>Hey wait, these aren't your spots...</p>
         <ul>
           <li className='redirect__text'><Link to={`/users/${userId}/${type}s`}>Your {type}s</Link></li>
-          <li className='redirect__text'><Link to='/'>Back to all listings</Link></li>
+          <li className='redirect__text'><Link to='/'>Back to all spots</Link></li>
         </ul>
         </div>
       </div>

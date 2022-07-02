@@ -50,7 +50,7 @@ export const getOneSpot = (id) => async dispatch => {
   }
 }
 
-
+// SHOULD WORK BUT LEADS TO IMAGE 500 SERVER ERROR WHEN CREATING IMAGE
 // export const createNewSpot = (payload) => async dispatch => {
 //   const response = await csrfFetch(`/api/spots`);
 
@@ -61,6 +61,18 @@ export const getOneSpot = (id) => async dispatch => {
 //   }
 // }
 
+// SHOULD WORK BUT LEADS TO IMAGE 500 SERVER ERROR WHEN CREATING IMAGE
+// export const createNewSpot = (payload) => async dispatch => {
+//   const res = await csrfFetch('/api/spots', {
+//     method: 'POST',
+//     body: JSON.stringify(payload)
+//   })
+
+//   dispatch(createOne(payload))
+//   return res;
+// }
+
+//working
 export const createNewSpot = (payload) => async dispatch => {
   try {
     const response = await csrfFetch(`/api/spots`, {

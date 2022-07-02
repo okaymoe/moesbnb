@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getSpots } from '../../store/spots'
 import SpotCard from '../SpotCard';
-import EditListingFormModal from '../EditListingFormModal';
-import DeleteListingForm from '../DeleteListingForm';
+import EditSpotFormModal from '../EditSpotFormModal';
+import DeleteSpotForm from '../DeleteSpotForm';
 import UnauthorizedUser from '../UnauthorizedUser';
 import { Modal } from '../../context/Modal';
 
@@ -56,8 +56,8 @@ const UserSpots = ({ spots, user, setTrigger }) => {
   if (!mySpots.length) {
     return (
       <>
-        <h2 className='notrips header-title'>Listings</h2>
-        <p>No listings..make one</p>
+        <h2 className='notrips header-title'>Spots</h2>
+        <p>No spots, care to make one?</p>
       </>
     )
   }
@@ -83,10 +83,10 @@ const UserSpots = ({ spots, user, setTrigger }) => {
                   onClick={() => handleDeleteClick(spot)}
                   className='btn user-listing__btn'
                 >Remove Spot</button>
-                <EditListingFormModal spot={spot} user={user}/>
+                <EditSpotFormModal spot={spot} user={user}/>
                 {showDeleteModal && (
                   <Modal onClose={() => setShowDeleteModal(false)}>
-                    <DeleteListingForm
+                    <DeleteSpotForm
                       spot={deletedSpot}
                       showDeleteModal={showDeleteModal}
                       setShowDeleteModal={setShowDeleteModal}

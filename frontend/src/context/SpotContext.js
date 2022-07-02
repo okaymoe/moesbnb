@@ -8,14 +8,14 @@ export default function SpotProvider(props) {
   const [selectedSpot, setSelectedSpot] = useState({});
 
   return (
-  <ListingContext.Provider
+  <SpotContext.Provider
     value={{
       selectedSpot,
       setSelectedSpot
     }}
     >
       {props.children}
-    </ListingContext.Provider>
+    </SpotContext.Provider>
   )
 };
 

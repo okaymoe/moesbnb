@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditSpotForm from '../EditSpotForm';
-import './EditListingFormModal.css'
+import './EditSpotFormModal.css'
 
 
-function EditListingFormModal({spot, user}) {
+function EditSpotFormModal({spot, user}) {
   const [showEditModal, setShowEditModal] = useState(false);
   return (
     <>
@@ -18,4 +18,4 @@ function EditListingFormModal({spot, user}) {
   );
 }
 
-export default EditListingFormModal;
+export default EditSpotFormModal;

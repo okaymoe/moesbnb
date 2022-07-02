@@ -5,7 +5,7 @@ import { getSpots } from './store/spots'
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import ListingForm from "./components/ListingForm";
+import SpotForm from "./components/SpotForm";
 import UserSpots from "./components/UserSpots";
 import SpotsDetails from "./components/SpotsDetails"
 import SpotsReviews from "./components/SpotsReviews/SpotsReviews";
@@ -41,7 +41,7 @@ function App() {
               
             </Route>
             <Route exact path={'/spots'}>
-              <ListingForm />
+              <SpotForm />
               
             </Route>
             <Route path="/signup">

@@ -1,10 +1,10 @@
-import './DeleteListingForm.css';
+import './DeleteSpotForm.css';
 import { useDispatch, useSelector } from 'react-redux';
 import spotsReducer, { deleteSpot, getSpots } from '../../store/spots'
 import { useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
-const DeleteListingForm = ({ spot, visible, showDeleteModal, setShowDeleteModal, user }) => {
+const DeleteSpotForm = ({ spot, visible, showDeleteModal, setShowDeleteModal, user }) => {
 
 
   const [deleted, setDeleted] = useState(false);
@@ -36,11 +36,11 @@ const DeleteListingForm = ({ spot, visible, showDeleteModal, setShowDeleteModal,
   return (
     showDeleteModal &&
     <div className='delete-listing__form'>
-      <h3 className='delete-listing__title'>Remove {spot.name} from your listings?</h3>
+      <h3 className='delete-listing__title'>Remove {spot.name} from your spots?</h3>
       <button className='delete-listing__btn btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
       <button className='delete-listing__btn btn' onClick={() => handleDelete(spot.id)}>Yes, Remove!</button>
     </div>
   )
 }
 
-export default DeleteListingForm;
+export default DeleteSpotForm;
