@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { ValidationError } from '../../utils/validationError';
 import { editSpot } from '../../store/spots'
 // import EditImageForm from '../EditImageForm'
-import EditImageFormModal from '../EditImageForm';
+// import EditImageFormModal from '../EditImageForm';
 
 const EditSpotForm = ({ spot, user, setTrigger }) => {
   const dispatch = useDispatch();

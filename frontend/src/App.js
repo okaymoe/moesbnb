@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import ListingForm from "./components/ListingForm";
 import UserSpots from "./components/UserSpots";
-import SpotsDetails from "./components/SpotDetails"
+import SpotsDetails from "./components/SpotsDetails"
 import SpotsReviews from "./components/SpotsReviews/SpotsReviews";
 import ReviewForm from "./components/ReviewForm";
 import * as sessionActions from "./store/session";
