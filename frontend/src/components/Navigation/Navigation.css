@@ -10,6 +10,8 @@
 }
 
 #logo {
+    display: flex;
+    align-items: center;
     object-fit: contain;
     height: 100px;
     margin-left: 20px;
