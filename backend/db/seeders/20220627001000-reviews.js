@@ -12,13 +12,13 @@ module.exports = {
    },
      {
      comment: 'I wish I could afford staying here...',
-     userId: 1,
+     userId: 3,
      spotId: 1,
      rating: 5,
    },
      {
      comment: 'My dog loved the backyard!',
-     userId: 1,
+     userId: 2,
      spotId: 1,
      rating: 5,
    }

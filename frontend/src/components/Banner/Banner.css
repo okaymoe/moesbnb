@@ -1,8 +1,13 @@
 .banner {
     height: 50vh;
     width: 100vw;
-    background: url("https://i.imgur.com/exYEGdR.jpg") center center ;
+    background: url("https://i.imgur.com/exYEGdR.jpg");
     position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin:auto;
+    padding:0;
 }
 
 .banner_info {

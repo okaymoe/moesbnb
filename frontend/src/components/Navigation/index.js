@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
     
     <div className="navbar">
         <NavLink id="logo" exact to="/">
-          <p id="logo" >moebnb</p>
+          <p id="logo">moesbnb</p>
         </NavLink>
 
         {isLoaded && sessionLinks}

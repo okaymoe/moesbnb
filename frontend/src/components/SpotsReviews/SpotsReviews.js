@@ -41,7 +41,7 @@ const SpotsReviews = () => {
             <>
               <div className="comment-header">
                 
-                {review.userId === user.id ? userName = user.username : ''}
+                {review.userId === user.id ? userName = user.username : review.userId}
                 
               </div>
               <div className="comment-content">{review.comment}

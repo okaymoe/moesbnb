@@ -37,9 +37,10 @@
   
   .card__image {
     width: 100%;
-    margin: 0;
+    margin: 5;
     background-size: cover;
     background-position: center;
+    padding: 50px;
   }
   
   .card__image::after{

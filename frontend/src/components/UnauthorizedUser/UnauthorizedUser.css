@@ -10,9 +10,12 @@
     padding: 6em;
     text-align: center;
   }
+
   
   .redirect__text {
     padding: .5em;
     font-size: 1.25em;
     font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    list-style-type: none;
   }
