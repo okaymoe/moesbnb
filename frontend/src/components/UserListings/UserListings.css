@@ -4,7 +4,9 @@
 
 
 .user-listing__btn {
-  align-self: center
+  align-self: center;
+  background-color: #fd6a6f ;
+  color: rgb(255, 255, 255)
 }
 
 .user-listing__btn-container {
@@ -22,6 +24,7 @@
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-gap: 16px;
+  padding: 10px;
 }
 
 .user-listings__cards {
@@ -30,6 +33,10 @@
   flex-direction: column;
   margin: 0 auto;
   border-radius: .50em;
-  border: .5px solid #C8C8C8;
+  border: .5px solid #f89393;
   box-shadow: 0 3px 3px rgba(33,33,33,.2);
+}
+
+h1 {
+  color: #fd6a6f 
 }
