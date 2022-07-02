@@ -36,7 +36,7 @@ const ReviewForm = ({ setShowReviewForm }) => {
       <form onSubmit={onSubmit}>
         <input
                   type="text"
-                  placeholder="Write a review!"
+                  placeholder="Type your review here"
                   value={reviewComment}
                   onChange={updateReviewComment}
                   className="create-comment-input"

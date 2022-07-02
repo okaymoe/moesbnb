@@ -1,5 +1,5 @@
 import './UserSpots.css'
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getSpots } from '../../store/spots'
@@ -56,8 +56,8 @@ const UserSpots = ({ spots, user, setTrigger }) => {
   if (!mySpots.length) {
     return (
       <>
-        <h2 className='notrips header-title'>Spots</h2>
-        <p>No spots, care to make one?</p>
+        <h2 className='nospots header-title'>Spots</h2>
+        <p className='nospotstxt'>You currently don't have any spots, <NavLink exact to ="/spots">care to make one?</NavLink></p>
       </>
     )
   }

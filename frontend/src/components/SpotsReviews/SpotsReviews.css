@@ -1,7 +1,9 @@
 .comment-header{
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
     position: relative;
     font-weight: bold;
   }
@@ -18,14 +20,14 @@
   
   .comment-content{
     display: flex;
-    margin-left: 70px;
+    margin-left: 10px;
     color: rgba(0, 0, 0, 0.807);
     border: solid 1px #ff484e;;
     height: 40px;
     align-items: center;
     padding: 1px;
     margin-bottom: 10px;
- 
+    
   }
   
   .delete-btn{
@@ -46,6 +48,7 @@
   }
 
   #writeareview {
+    padding-left: 14px;
     font-size: large;
     color: #ff484e;
     font-weight:bold;
