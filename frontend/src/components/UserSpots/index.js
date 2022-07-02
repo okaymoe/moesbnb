@@ -23,7 +23,15 @@ const UserSpots = ({ spots, user, setTrigger }) => {
   const mySpots = useSelector(state => Object.values(state.spots).filter(spot => {
     return spot.userId === user.id;
   }));
-  // const mySpots = useSelector(state => console.log(Object.values(state.spots)))
+
+  let imageState = useSelector((state) => state.images);
+  let imageStateArray = Object.values(imageState || {})
+
+  if (mySpots.length && imageStateArray.length) {
+    mySpots[mySpots.length-1].Images = imageStateArray
+  }
+
+// or if(mySpots.length && imageStateArray.length) mySpots[mySpots.length - 1].Images = imageStateArray;
 
   useEffect(() => {
     dispatch(getSpots())
