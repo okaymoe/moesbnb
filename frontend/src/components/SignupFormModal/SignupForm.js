@@ -29,13 +29,13 @@ function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="loginmodalform" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label>
         Email
-        <input
+        <input id="inputusername"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -44,7 +44,7 @@ function SignupForm() {
       </label>
       <label>
         Username
-        <input
+        <input id="inputusername"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -53,7 +53,7 @@ function SignupForm() {
       </label>
       <label>
         Password
-        <input
+        <input id="inputpassword"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -62,14 +62,14 @@ function SignupForm() {
       </label>
       <label>
         Confirm Password
-        <input
+        <input id="inputpassword"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button id="btnlogin" type="submit">Sign Up</button>
     </form>
   );
 }

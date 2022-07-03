@@ -8,10 +8,10 @@ import Home from "./components/Home";
 import SpotForm from "./components/SpotForm";
 import UserSpots from "./components/UserSpots";
 import SpotsDetails from "./components/SpotsDetails"
-import SpotsReviews from "./components/SpotsReviews/SpotsReviews";
 import ReviewForm from "./components/ReviewForm";
 import * as sessionActions from "./store/session";
 import PageNotFound from "./components/PageNotFound";
+import Banner from "./components/Banner";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,18 +34,17 @@ function App() {
       {isLoaded && (
           <Switch>
             <Route exact path="/">
+              <Banner/>
               <Home/>
             </Route>
             <Route exact path={'/spots/:id'}>
-              <SpotsDetails user={sessionUser} spots={spots} />
-              
+              <SpotsDetails spots={spots} />
             </Route>
             <Route exact path={'/spots'}>
               <SpotForm />
             </Route>
-          
             <Route exact path={'/users/:id/spots'}>
-              <UserSpots spots={spots.spots} user={sessionUser} />
+              <UserSpots spots={spots} user={sessionUser} />
             </Route>
             <Route>
               <PageNotFound/>

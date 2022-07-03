@@ -25,7 +25,7 @@ const SpotsDetails = ({ user, spots }) => {
    
   return (
     <div className='spot_display-header container'>
-      <h2 className='spot-header-title'>{name}</h2>
+      <h2 className='spot-header-address'>{name}</h2>
       <h4 className='spot-header-address'>{city}, {state}, {country}</h4>
       <h4 className='spot-header-cost'>Cost per night: ${price}</h4>
       <DetailPhotoDisplay spot={spot}/>

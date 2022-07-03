@@ -1,8 +1,9 @@
 .delete-listing__form {
   display: flex;
   flex-direction: column;
-  max-width: 20em;
+  max-width: 40em;
   text-align: center;
+  padding: 10px;
 }
 
 .delete-listing__title {
@@ -13,4 +14,6 @@
 
 .delete-listing__btn {
   margin: 2em 3em .5em;
+  color: white;
+  background-color: rgb(255, 104, 104);
 }

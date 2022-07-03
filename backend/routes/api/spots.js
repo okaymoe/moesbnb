@@ -63,6 +63,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       }
     }
   });
+  
   router.get('/:id/reviews', asyncHandler(async function(req, res) {
     const id = req.params.id
 

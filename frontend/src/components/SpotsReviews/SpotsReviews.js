@@ -37,7 +37,7 @@ const SpotsReviews = () => {
 
       {Object.values(reviews).map(review => (
         <>
-          {review ? (
+          {review && review.spotId === spot.id ? (
             <>
               <div className="comment-header">
                 
@@ -58,10 +58,8 @@ const SpotsReviews = () => {
               </div>
             </>
           ) : ''}
-
         </>
-      ))
-      }
+      ))}
     </>
   )
 }

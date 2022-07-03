@@ -25,7 +25,7 @@ const SpotCard = ({ spot }) => {
         <p className='card__text card__name'>{name}</p>
         <div className='card__value-container'>
           <p className='card__text card__value'>${price} </p>
-          <p className='card__text card__price'>night</p>
+          <p className='card__text card__price'>/ night</p>
         </div>
       </Link>
     </div>

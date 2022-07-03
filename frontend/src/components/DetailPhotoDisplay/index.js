@@ -18,7 +18,7 @@ useEffect(() => {
   return (
     <div className="listing-photos container">
       {images.map(image => (
-      <div className='listing-photos__main'>
+      <div key={image.id} className='listing-photos__main'>
         <figure
           className='listing-photos__main-image card__image'
           style={{ backgroundImage: `url( ${image.url} )` }} />

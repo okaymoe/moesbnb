@@ -77,30 +77,14 @@ const imagesReducer = (state = {}, action) => {
       action.newImages.forEach(newImage => {
         allImages[newImage.id] = newImage;
       });
-      return {
-        ...allImages,
-        ...state
-      };
-    case EDIT_IMAGES:
-
-      const editedImages = {}
-      action.updatedImages.forEach(updatedImage => {
-        editedImages[updatedImage.id] = updatedImage
-      });
-      return {
-        ...editedImages,
-        ...state
-      };
+      return allImages;
     case GET_IMAGES:
 
       const getImages = {}
       action.images.forEach(image => {
         getImages[image.id] = image
       });
-      return {
-        ...getImages,
-        ...state
-      };
+      return getImages;
     default:
       return state;
   }

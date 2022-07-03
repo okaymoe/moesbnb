@@ -21,16 +21,14 @@ const Home = () => {
 
 
   return (
+    sessionUser && <Banner/> &&
     <div>
-        <div>
-            <Banner/>
-        </div>
         <p id="home_title">Check out some of our available spots below!</p>
         <ul className='container-home'>
         {spots.map(spot => {
         return (
           spot.Images &&
-          <li className="user-listings__cards_home" >
+          <li key={spot.id} className="user-listings__cards_home" >
             <SpotCard spot={spot} />
           </li>
         )

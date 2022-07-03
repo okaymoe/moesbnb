@@ -29,9 +29,9 @@ const ImageForm = ({ spotId, user }) => {
     setImageURLs(newFormValues)
   }
 
-  useEffect(() => {
-    dispatch(getSpots())
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getSpots())
+  // }, []);
   //}, [created]);
 
   let handleSubmit = async (e) => {

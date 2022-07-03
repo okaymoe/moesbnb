@@ -22,7 +22,9 @@
 
 .edit-listing-form__btn {
   max-width: 100%;
-  margin: 1em;
+  margin: 2em 3em .5em;
+  color: white;
+  background-color: rgb(255, 104, 104);
 }
 .edit-listing__input-label {
   display: flex;
