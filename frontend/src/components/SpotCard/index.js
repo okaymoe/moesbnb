@@ -12,12 +12,11 @@ const SpotCard = ({ spot }) => {
   return (
     <div className='card card__carousel'>
       <MainSlideshow images={Images} id={id} />
-      {/* <figure className='card__image' style={{ backgroundImage: `url( ${Images[0].url} )` }} /> */}
       <Link to={`/spots/${id}`} className='card__link'>
         <div className='card__location'>
         <p className='card__text card__name'>{name}</p>
         </div>
-          <p className='card__text card__location'>{city}, {state}, {country}</p>
+          <p className='card__text card__location'>{city}, {state}</p>
         <div className='card__value-container'>
           <p className='card__text card__value'>${price}</p>
           <p className='card__text card__price'>/ night</p>

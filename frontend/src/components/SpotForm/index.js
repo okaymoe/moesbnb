@@ -100,14 +100,21 @@ const SpotForm = () => {
                 value={state}
                 onChange={(e) => setState(e.target.value)}
               />
-              <input className='listing-form__input' type='text' placeholder='Country' onChange={(e) => setCountry(e.target.value)}
-              ></input>
+              <input 
+              className='listing-form__input' 
+              type='text' 
+              placeholder='Country' 
+              required
+              minLength="3"
+              maxLength="20"
+              onChange={(e) => setCountry(e.target.value)}
+              />
               <input
                 className='listing-form__input'
                 type='text'
                 placeholder='Name'
                 minLength='3'
-                maxLength='150'
+                maxLength='100'
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
