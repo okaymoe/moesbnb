@@ -50,7 +50,18 @@
 
 .listing-form__btn {
   margin: 2em;
-  min-width: 35%;
+  min-width: 20%;
+  border-radius: 10px;
+  background-color: rgb(255, 112, 112);
+  color: white;
+}
+
+.listing-form__btn:hover {
+  margin: 2em;
+  min-width: 20%;
+  border-radius: 10px;
+  color: rgb(255, 112, 112);
+  background-color: white;
 }
 
 

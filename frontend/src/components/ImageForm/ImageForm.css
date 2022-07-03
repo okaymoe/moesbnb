@@ -7,7 +7,7 @@
     /* margin: 3em; */
   }
   
-  .booking-link__container {
+  .listing-link__container {
     display: flex;
     position: relative;
     justify-content: space-around;
@@ -15,7 +15,7 @@
     min-width: 100%;
   }
   
-  .booking-link__image {
+  .listing-link__image {
     border-radius: .50em;
     border: .5px solid #C8C8C8;
   }
@@ -24,19 +24,20 @@
     text-align: center;
   }
   
-  .booking_link__input {
+  .listing_link_input {
     padding: 1em;
     width: 75%;
     padding: 1em;
     border-radius: .50em;
     border: .5px solid #C8C8C8;
+    margin-top: 10px;
   }
   
-  .booking_link__input:focus {
+  .listing_link_input:focus {
     outline: none;
   }
   
-  .booking-link__button-container {
+  .listing-link__button-container {
     display: flex;
     flex-direction: column;
     margin: 1.5em;
@@ -45,14 +46,24 @@
     align-self: center
   }
   
-  .remove-booking-link-listing__button {
+  .remove-listing-link-listing__button {
     position: absolute;
     padding: .75em;
     right: 1.85em;
     border-radius: .5em;
   }
+
+  .listing-link__button {
+    min-width: 20%;
+    border-radius: 10px;
+    background-color: rgb(255, 112, 112);
+    color: white;
+  }
   
-  .booking-link__button {
-    margin: .75em;
+  .listing-link__button:hover {
+    min-width: 20%;
+    border-radius: 10px;
+    color: rgb(255, 112, 112);
+    background-color: white;
   }
   

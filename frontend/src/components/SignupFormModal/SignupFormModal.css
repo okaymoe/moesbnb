@@ -42,10 +42,21 @@
   margin-right: 20px;
 }
 
-#inputpassword {
+#inputemail {
   display: flex;
   justify-content: end;
-  align-items: center;
+  margin-right: 20px;
+}
+
+#inputpassword1 {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+}
+
+#inputpassword2 {
+  display: flex;
+  justify-content: end;
   margin-right: 20px;
 }
 

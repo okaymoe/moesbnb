@@ -35,7 +35,7 @@ function SignupForm() {
       </ul>
       <label>
         Email
-        <input id="inputusername"
+        <input id="inputemail"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -53,7 +53,7 @@ function SignupForm() {
       </label>
       <label>
         Password
-        <input id="inputpassword"
+        <input id="inputpassword1"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -62,7 +62,7 @@ function SignupForm() {
       </label>
       <label>
         Confirm Password
-        <input id="inputpassword"
+        <input id="inputpassword2"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
