@@ -35,7 +35,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div>
+      <div className="profcontainer">
       <button className="navButton" onClick={openMenu}>
         <span>
           <img id="avi" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="menu"/>

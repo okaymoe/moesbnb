@@ -6,51 +6,52 @@
     padding-top: 10px;
     position: relative;
     font-weight: bold;
-  }
-  .comment-header > *{
-    margin-left: 10px;
-    border: solid 1px black;
-  }
-  .profile-img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: transparent;
-  }
-  
-  .comment-content{
-    display: flex;
-    margin-left: 10px;
-    color: rgba(0, 0, 0, 0.807);
-    border: solid 1px #ff484e;;
-    height: 40px;
-    align-items: center;
-    padding: 1px;
-    margin-bottom: 10px;
-    
-  }
-  
-  .delete-btn{
-    background-color: transparent;
-    border: none;
-    /* position: absolute; */
-    /* right: 10px; */
-    /* top: 10px; */
-  }
-  .single-comment{
-    background-color: black;
-  }
-  .chatIcon{
-    background-color: transparent;
-    border: none;
-    font-size: 10px;
-    cursor: pointer;
-  }
+}
 
-  #writeareview {
-    padding-left: 14px;
-    font-size: large;
-    color: #ff484e;
-    font-weight:bold;
-  }
+.comment-header > *{
+  margin-left: 10px;
+  border: solid 1px black;
+}
+
+.profile-img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.comment-content{
+  display: flex;
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.807);
+  border: solid 1px #ff484e;;
+  height: 40px;
+  align-items: center;
+  padding: 1px;
+  margin-bottom: 10px;
+}
+
+.delete-btn{
+  background-color: transparent;
+  border: none;
+  /* position: absolute; */
+  /* right: 10px; */
+  /* top: 10px; */
+}
+.single-comment{
+  background-color: black;
+}
+.chatIcon{
+  background-color: transparent;
+  border: none;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#writeareview {
+  padding-left: 14px;
+  font-size: large;
+  color: #ff484e;
+  font-weight:bold;
+}
   

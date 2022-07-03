@@ -1,56 +1,57 @@
 .card {
     font-family: 'Montserat', sans-serif;
     margin: .25em .25em 3em;
-  }
-  .card__link {
-    color: #393939;
-  }
-  
-  .card__text {
-    margin: .55em;
-    font-weight: bold;
-    font-size: .85em;
-    text-align: center;
-  }
-  
-  .card__location {
-    margin: 1em;
-    font-weight: bold;
+}
 
-  }
-  
-  .card__name {
-    color: #7C7B7B;
-    margin-bottom: 1em;
-  }
-  
-  .card__price {
-    color: #393939;
-  }
-  
-  .card__value-container {
-    display: flex;
-  }
-  
-  .card__value {
-   font-weight: 600;
-   margin-right: .001em;
-  }
-  
-  .card__image {
-    width: 100%;
-    margin: 5;
-    background-size: cover;
-    background-position: center;
-    padding: 50px;
-  }
-  
-  .card__image::after{
-    display: block;
-    padding-top: 100%;
-    content: '';
-  }
-  
-  .card__image{
-    overflow: hidden;
-  }
+.card__link {
+  color: #393939;
+}
+
+.card__text {
+  margin: .55em;
+  font-weight: bold;
+  font-size: .85em;
+  text-align: center;
+}
+
+.card__location {
+  margin: 1em;
+  font-weight: bold;
+
+}
+
+.card__name {
+  color: #7C7B7B;
+  margin-bottom: 1em;
+}
+
+.card__price {
+  color: #393939;
+}
+
+.card__value-container {
+  display: flex;
+}
+
+.card__value {
+  font-weight: 600;
+  margin-right: .001em;
+}
+
+.card__image {
+  width: 100%;
+  margin: 5;
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+}
+
+.card__image::after{
+  display: block;
+  padding-top: 100%;
+  content: '';
+}
+
+.card__image{
+  overflow: hidden;
+}
