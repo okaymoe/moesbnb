@@ -10,15 +10,12 @@ import UnauthorizedUser from '../UnauthorizedUser';
 import { Modal } from '../../context/Modal';
 
 
-
 const UserSpots = ({ spots, user, setTrigger }) => {
   const dispatch = useDispatch()
-  const [editForm, setEditForm] = useState(false);
   const [deleteForm, setDeleteForm] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState(null);
   const [deletedSpot, setDeletedSpot] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false)
-  const history = useHistory();
 
   const { id } = useParams();
 
@@ -35,22 +32,17 @@ const UserSpots = ({ spots, user, setTrigger }) => {
 
 
   useEffect(() => {
-    dispatch(getSpots()).then (() => {
-      history.push(`/users/${user.id}/spots`)
-    })
-
+    dispatch(getSpots())
   }, [dispatch, showDeleteModal]);
 
   useEffect(() => {
     if (selectedSpot)
-      setEditForm(true)
     setDeleteForm(false)
   }, [selectedSpot])
 
   useEffect(() => {
     if (deletedSpot)
       setDeleteForm(true)
-    setEditForm(false)
   }, [deletedSpot])
 
   useEffect(() => {
