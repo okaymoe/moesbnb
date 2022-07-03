@@ -46,6 +46,7 @@ const ImageForm = ({ spotId, user }) => {
     let images;
     try {
       images = await dispatch(createNewImages(payload, spotId))
+      dispatch(getSpots())
     } catch (error) {
       // TODO error handle
     }

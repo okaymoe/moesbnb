@@ -144,8 +144,8 @@ const spotsReducer = (state = initialState, action) => {
         allSpots[spot.id] = spot;
       });
       return {
-        ...allSpots,
         ...state,
+        ...allSpots,
       };
     case LOAD_ONE:
       return {

@@ -7,14 +7,16 @@
   }
   
   .card__text {
-    margin-bottom: .5em;
+    margin: .55em;
+    font-weight: bold;
     font-size: .85em;
+    text-align: center;
   }
   
   .card__location {
-    margin-top: 1em;
-    margin-bottom: .55em;
+    margin: 1em;
     font-weight: bold;
+
   }
   
   .card__name {

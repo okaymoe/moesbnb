@@ -41,7 +41,7 @@ const ReviewForm = ({ setShowReviewForm }) => {
                   onChange={updateReviewComment}
                   className="create-comment-input"
                   />
-        <button className="create-comment-submit">Submit</button>
+        <button disabled={!reviewComment.length} className="create-comment-submit">Submit</button>
         <button onClick={() => setShowReviewForm(false)} className="create-comment-cancel">Cancel</button>
       </form>
     </>

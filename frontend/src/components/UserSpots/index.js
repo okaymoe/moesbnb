@@ -19,16 +19,19 @@ const UserSpots = ({ spots, user, setTrigger }) => {
 
   const { id } = useParams();
 
-  const mySpots = useSelector(state => Object.values(state.spots).filter(spot => {
-    return spot.userId === user.id;
-  }));
+  // const mySpots = useSelector(state => Object.values(state.spots).filter(spot => {
+  //   return spot.userId === user.id;
+  // }));
 
-  let imageState = useSelector((state) => state.images);
-  let imageStateArray = Object.values(imageState || {})
+  // let imageState = useSelector((state) => state.images);
+  // let imageStateArray = Object.values(imageState || {})
 
-  if (mySpots.length && imageStateArray.length) {
-    mySpots[mySpots.length-1].Images = imageStateArray
-  }
+  // if (mySpots.length && imageStateArray.length) {
+  //   mySpots[mySpots.length-1].Images = imageStateArray
+  // }
+
+  const spotsObj = useSelector(state => state.spots)
+  const mySpots = Object.values(spotsObj).filter(spot => spot.userId === user.id)
 
 
   useEffect(() => {
@@ -77,7 +80,7 @@ const UserSpots = ({ spots, user, setTrigger }) => {
       <ul className='user-listings__grid'>
         {mySpots.map(spot => (
           
-            spot.Images.length &&
+            // spot.Images.length &&
             <li className="user-listings__cards" key={spot.id} >
               <SpotCard spot={spot}
                 isSelected={selectedSpot && spot.id === selectedSpot.id}
@@ -90,16 +93,11 @@ const UserSpots = ({ spots, user, setTrigger }) => {
                 <EditSpotFormModal spot={spot} user={user}/>
                 {showDeleteModal && (
                   <Modal onClose={() => setShowDeleteModal(false)}>
-                    <DeleteSpotForm
-                      spot={deletedSpot}
-                      showDeleteModal={showDeleteModal}
-                      setShowDeleteModal={setShowDeleteModal}
-                      user={user} />
+                    <DeleteSpotForm spot={deletedSpot} showDeleteModal={showDeleteModal} setShowDeleteModal={setShowDeleteModal} user={user} />
                   </Modal>
                 )}
               </div>
             </li>
-          
         ))}
       </ul>
     </div>

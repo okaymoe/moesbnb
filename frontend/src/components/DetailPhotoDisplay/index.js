@@ -15,7 +15,7 @@ useEffect(() => {
   dispatch(getAllImages(spot.id));
 }, [dispatch]);
 
-  return (
+return ( (images.length && images[0].spotId === spot.id) ?
     <div className="listing-photos container">
       {images.map(image => (
       <div key={image.id} className='listing-photos__main'>
@@ -25,6 +25,7 @@ useEffect(() => {
       </div>
     ))}
     </div>
+    : null
   )
 }
 
