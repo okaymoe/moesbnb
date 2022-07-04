@@ -29,11 +29,6 @@ const ImageForm = ({ spotId, user }) => {
     setImageURLs(newFormValues)
   }
 
-  // useEffect(() => {
-  //   dispatch(getSpots())
-  // }, []);
-  //}, [created]);
-
   let handleSubmit = async (e) => {
     e.preventDefault();
     imageURLs.map(imageURL => {
@@ -48,7 +43,6 @@ const ImageForm = ({ spotId, user }) => {
       images = await dispatch(createNewImages(payload, spotId))
       dispatch(getSpots())
     } catch (error) {
-      // TODO error handle
     }
     if (images) {
       setCreated(true)
@@ -64,7 +58,7 @@ const ImageForm = ({ spotId, user }) => {
 
   return (
       <>
-      <p className='header-title listing-form__image-title'>Please add an image of your home</p>
+      <h1>ADD AN IMAGE</h1>
       <form onSubmit={handleSubmit} autoComplete="off" className='listing-form__image-container container'>
         {imageURLs.map((element, index) => (
           <div className='listing-link__container' key={index}>

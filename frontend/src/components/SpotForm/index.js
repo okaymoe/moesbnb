@@ -68,6 +68,7 @@ const SpotForm = () => {
       </div>
       {!valid ?
         (<div className='listing-container container'>
+          <h1>HOST YOUR SPOT</h1>
           <form className='create-listing' onSubmit={handleSubmit}>
             <div className='listing-form'>
               <input
