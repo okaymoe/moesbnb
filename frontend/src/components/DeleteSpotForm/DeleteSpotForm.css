@@ -4,16 +4,19 @@
   max-width: 40em;
   text-align: center;
   padding: 10px;
+  min-height: 200px;
+  min-width: 500px;;
 }
 
 .delete-listing__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.25em;
   font-weight: 600;
+  padding: 20px;
 }
 
 .delete-listing__btn {
-  margin: 2em 3em .5em;
+  margin: 15px;
   color: white;
   background-color: rgb(255, 104, 104);
 }

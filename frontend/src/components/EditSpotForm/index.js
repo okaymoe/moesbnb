@@ -1,5 +1,5 @@
 import './EditSpotForm.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { ValidationError } from '../../utils/validationError';
@@ -19,6 +19,21 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
   const [name, updateName] = useState(spot.name);
   const [price, updatePrice] = useState(spot.price);
   const [valid, setValid] = useState(false);
+  const [validation, setValidation] = useState([]);
+
+
+  useEffect(()=> {
+    const errors = []
+    if (address.length < 2) errors.push("Address must be at least 2 characters")
+    if (city.length < 2) errors.push("City must be at least 2 characters")
+    if (state.length < 2) errors.push("State must be at least 2 characters")
+    if (country.length < 2) errors.push("Country must be at least 2 characters")
+    if (name.length < 2) errors.push("Name must be at least 2 characters")
+    if (price < 0) errors.push("Price must be free or cost more than $0.00.")
+
+    setValidation(errors)
+
+  }, [name, address, city, state, country, price])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,6 +68,11 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
     <>
       {!valid && (
         <div className='edit-listing-container container'>
+          <ul className="editspoterrors">
+          {validation.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+          </ul>
           <h1 className='header-title'>Edit Your Spot</h1>
           <form className='edit-listing' onSubmit={handleSubmit}>
             <div className='edit-listing-form'>
@@ -91,7 +111,6 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
                 <input
                   className='edit-listing__input'
                   type='text'
-                  placeholder='Country'
                   value={country}
                   onChange={(e) => updateCountry(e.target.value)}>
                 </input>
@@ -118,8 +137,8 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
               </span>
 
               <div className='edit-listing__btn-container'>
-                <button className='edit-listing-form__btn btn' type="submit">Save</button>
-                <button className='edit-listing-form__btn btn'>Cancel</button>
+                <button className='edit-listing-form__btn btn' disabled={!!validation.length} type="submit">Save</button>
+                <h4 id="getout">To cancel, click outside of this edit form.</h4>
               </div>
             </div>
           </form>
