@@ -9,35 +9,35 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 50]
+        len: [2, 25]
       },
      },
      city: {
       type:DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 50]
+        len: [2, 25]
       },
      },
     state: {
       type:DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 50]
+        len: [2, 25]
       },
      },
     country: {
       type:DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [2, 50]
+        len: [2, 25]
       },
      },
     name: {
       type:DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 150]
+        len: [2, 25]
       },
      },
     price: {
