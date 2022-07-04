@@ -59,6 +59,7 @@ const ImageForm = ({ spotId, user }) => {
   return (
       <>
       <h1>ADD AN IMAGE</h1>
+      <h4 className="subtitlee">(Invalid URLs will show up blank!)</h4>
       <form onSubmit={handleSubmit} autoComplete="off" className='listing-form__image-container container'>
         {imageURLs.map((element, index) => (
           <div className='listing-link__container' key={index}>

@@ -8,6 +8,20 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.spotErrors {
+  color: red;
+  text-align: left;
+  margin-left: 750px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.requirements {
+  color: rgb(87, 87, 87);
+  text-align: center;
+  list-style: none;
+  text-decoration: underline;
+}
 
 .listing-form__header-left {
   display: flex;

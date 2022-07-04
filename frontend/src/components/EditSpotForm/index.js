@@ -24,12 +24,13 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
 
   useEffect(()=> {
     const errors = []
-    if (address.length < 2) errors.push("Address must be at least 2 characters")
-    if (city.length < 2) errors.push("City must be at least 2 characters")
-    if (state.length < 2) errors.push("State must be at least 2 characters")
-    if (country.length < 2) errors.push("Country must be at least 2 characters")
-    if (name.length < 2) errors.push("Name must be at least 2 characters")
+    if (address.length < 2 || address.length > 25) errors.push("Address must be between 2 - 25 characters")
+    if (city.length < 2 || city.length > 25) errors.push("City must be between 2 - 25 characters")
+    if (state.length < 2 || state.length > 25) errors.push("State must be between 2 - 25 characters")
+    if (country.length < 2 || country.length > 25) errors.push("Country must be between 2 - 25 characters")
+    if (name.length < 2 || name.length > 25) errors.push("Name must be between 2 - 25 characters")
     if (price < 0) errors.push("Price must be free or cost more than $0.00.")
+    if (price.length > 5) errors.push("Your spot can't cost that much!")
 
     setValidation(errors)
 

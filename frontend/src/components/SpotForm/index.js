@@ -20,8 +20,23 @@ const SpotForm = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [valid, setValid] = useState(false)
+  const [errorz, setErrorz] = useState([])
 
   const [id, setId] = useState('');
+
+  useEffect(()=> {
+    const errorss = []
+    if (address.length < 2 || address.length > 25) errorss.push("Address must be between 2 - 25 characters")
+    if (city.length < 2 || city.length > 25) errorss.push("City must be between 2 - 25 characters")
+    if (state.length < 2 || state.length > 25) errorss.push("State must be between 2 - 25 characters")
+    if (country.length < 2 || country.length > 25) errorss.push("Country must be between 2 - 25 characters")
+    if (name.length < 2 || name.length > 25) errorss.push("Name must be between 2 - 25 characters")
+    if (price < 0) errorss.push("Price must be free or cost more than $0.00.")
+    if (price.length > 5) errorss.push("Your spot can't cost that much!")
+
+    setErrorz(errorss)
+
+  }, [name, address, city, state, country, price])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,14 +83,21 @@ const SpotForm = () => {
       </div>
       {!valid ?
         (<div className='listing-container container'>
+
+          <h2 className="requirements">Requirements</h2>
+          <ul className="spoterrors">
+          {errorz.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+          </ul>
           <h1>HOST YOUR SPOT</h1>
           <form className='create-listing' onSubmit={handleSubmit}>
             <div className='listing-form'>
               <input
                 className='listing-form__input'
                 type='text'
-                minLength='3'
-                maxLength='50'
+                minLength='2'
+                maxLength='25'
                 placeholder='Address'
                 required
                 value={address}
@@ -86,7 +108,7 @@ const SpotForm = () => {
                 type='text'
                 placeholder='City'
                 minLength='2'
-                maxLength='50'
+                maxLength='25'
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
@@ -96,7 +118,7 @@ const SpotForm = () => {
                 type='text'
                 placeholder='State/Province'
                 minLength='2'
-                maxLength='50'
+                maxLength='25'
                 required
                 value={state}
                 onChange={(e) => setState(e.target.value)}
@@ -106,16 +128,16 @@ const SpotForm = () => {
               type='text' 
               placeholder='Country' 
               required
-              minLength="3"
-              maxLength="20"
+              minLength="2"
+              maxLength="25"
               onChange={(e) => setCountry(e.target.value)}
               />
               <input
                 className='listing-form__input'
                 type='text'
                 placeholder='Name'
-                minLength='3'
-                maxLength='100'
+                minLength='2'
+                maxLength='25'
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -128,7 +150,7 @@ const SpotForm = () => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
-              <button className='btn listing-form__btn' type="submit">Upload Images</button>
+              <button className='btn listing-form__btn' disabled={!!errorz.length} type="submit">Upload Images</button>
             </div>
           </form>
         </div>) :

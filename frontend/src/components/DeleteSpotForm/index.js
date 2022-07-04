@@ -37,7 +37,7 @@ const DeleteSpotForm = ({ spot, visible, showDeleteModal, setShowDeleteModal, us
     showDeleteModal &&
     <div className='delete-listing__form'>
       <h1 className='delete-listing__title'>Are you sure you want to remove {spot.name} from your spots?</h1>
-      <p>--This can't be undone--</p>
+      <p>——This can't be undone——</p>
       <button className='delete-listing__btn btn' onClick={() => setShowDeleteModal(false)}>Nevermind...</button>
       <button className='delete-listing__btn btn' onClick={() => handleDelete(spot.id)}>Yes, remove it!</button>
     </div>
