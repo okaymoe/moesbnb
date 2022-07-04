@@ -25,7 +25,6 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    
     <div className="navbar">
         <NavLink id="logo" exact to="/">
           <p id="logo">moesbnb</p>

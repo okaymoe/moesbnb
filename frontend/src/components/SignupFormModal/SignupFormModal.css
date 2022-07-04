@@ -1,6 +1,6 @@
 .login-btn__modal {
-    margin-right: 2em;
-  }
+  margin-right: 2em;
+}
 
 #modal {
   position: fixed;
@@ -27,40 +27,61 @@
   background-color:white;
 }
 
-#loginmodalform {
-  background-color: rgb(255, 88, 88);
+#signupmodalform {
   display: flex;
-  align-items: center;
-  padding: 1px;
+  flex-direction: column;
   font-family: 'Montserrat', sans-serif;
+  align-items: center;
   min-width: 30em;
+  min-height: 22em;
+  background-color: rgb(255, 255, 255);
+  border: solid 1px black;
 }
 
 #inputusername {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
 }
 
 #inputemail {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
 }
 
 #inputpassword1 {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
 }
 
 #inputpassword2 {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
 }
 
 #btnlogin {
   background-color: white;
   margin-right: 10px;
+}
+
+#signupheader {
+  padding: 10px;
+  font-size: x-large;
+  font-weight: 700;
+  color: rgb(255, 104, 104);
 }

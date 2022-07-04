@@ -29,41 +29,42 @@ function SignupForm() {
   };
 
   return (
-    <form id="loginmodalform" onSubmit={handleSubmit}>
+    <form id="signupmodalform" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+      <p id="signupheader">Sign Up</p>
       <label>
-        Email
         <input id="inputemail"
           type="text"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
       <label>
-        Username
         <input id="inputusername"
           type="text"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
       <label>
-        Password
         <input id="inputpassword1"
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
       <label>
-        Confirm Password
         <input id="inputpassword2"
           type="password"
+          placeholder="Please confirm your password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required

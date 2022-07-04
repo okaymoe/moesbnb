@@ -10,6 +10,10 @@
     padding:0;
 }
 
+.bannercontainer {
+    position: relative;
+}
+
 .banner_info {
     background-color: black;
     font-family: Cereal;

@@ -12,6 +12,7 @@ import ReviewForm from "./components/ReviewForm";
 import * as sessionActions from "./store/session";
 import PageNotFound from "./components/PageNotFound";
 import Banner from "./components/Banner";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +23,12 @@ function LoginForm() {
     );
   };
 
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    history.push("/");
+    return dispatch(sessionActions.demoLogin());
+  }
+
   return (
     <form id="loginmodalform" onSubmit={handleSubmit}>
       <ul>
@@ -27,25 +36,27 @@ function LoginForm() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <p id="loginheader">Log In</p>
       <label>
-        Username or Email
-        <input id="inputusername"
+        <input id="inputusernamelogin"
           type="text"
+          placeholder="Username"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
         />
       </label>
       <label>
-        Password
-        <input id="inputpassword"
+        <input id="inputpasswordlogin"
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
       <button id="btnlogin" type="submit">Log In</button>
+      <button className="demobutton" onClick={demoSubmit} >Demo User</button>
     </form>
   );
 }

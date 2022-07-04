@@ -1,6 +1,6 @@
 .login-btn__modal {
-    margin-right: 2em;
-  }
+  margin-right: 2em;
+}
 
 #modal {
   position: fixed;
@@ -28,28 +28,67 @@
 }
 
 #loginmodalform {
-  background-color: rgb(255, 88, 88);
   display: flex;
-  align-items: center;
-  padding: 1px;
+  flex-direction: column;
   font-family: 'Montserrat', sans-serif;
-  min-width: 30em;
-}
-
-#inputusername {
-  display: flex;
-  justify-content: end;
-  margin-right: 20px;
-}
-
-#inputpassword {
-  display: flex;
-  justify-content: end;
   align-items: center;
-  margin-right: 20px;
+  min-width: 30em;
+  min-height: 17em;
+  background-color: white;
+  border: solid 1px black;
+}
+
+#inputusernamelogin {
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
+}
+
+#inputpasswordlogin {
+  margin: .25em;
+  padding: 1em;
+  min-width: 23em;
+  border-radius: .50em;
+  border: .5px solid #C8C8C8;
+  text-align: left;
 }
 
 #btnlogin {
+  min-width: 20%;
+  max-width: 100%;
+  margin: 2em 3em .5em;
+  color: white;
+  background-color: rgb(255, 104, 104);
+}
+
+#btnlogin:hover {
+  min-width: 20%;
+  max-width: 100%;
+  margin: 2em 3em .5em;
+  color: rgb(255, 104, 104);
+  background-color: white ;
+}
+
+.demobutton {
   background-color: white;
   margin-right: 10px;
+  min-width: 20%;
+  margin: 1em 3em .5em;
+}
+
+.demobutton:hover {
+  background-color: rgb(255, 227, 104);
+  margin-right: 10px;
+  min-width: 20%;
+  margin: 1em 3em .5em;
+}
+
+#loginheader {
+  padding: 10px;
+  font-size: x-large;
+  font-weight: 700;
+  color: rgb(255, 104, 104);
 }
