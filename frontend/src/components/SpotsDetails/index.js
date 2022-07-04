@@ -19,7 +19,7 @@ const SpotsDetails = ({ user, spots }) => {
   if (!spot) {
     return <p>Hmm..this isn't a spot!</p>}
 
-  const { city, state, name, country, price, userId } = spot;
+  const { city, state, name, address, country, price, userId } = spot;
   
   
    
@@ -27,6 +27,7 @@ const SpotsDetails = ({ user, spots }) => {
     <div className='spot_display-header container'>
       <h2 className='spot-header-address'>{name}</h2>
       <h4 className='spot-header-address'>Host's ID: {userId}</h4>
+      <h4 className='spot-header-address'>{address}</h4>
       <h4 className='spot-header-address'>{city}, {state}, {country}</h4>
       <h4 className='spot-header-cost'>Cost per night: ${price}</h4>
       <DetailPhotoDisplay spot={spot}/>

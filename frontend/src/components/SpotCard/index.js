@@ -6,7 +6,7 @@ import MainSlideshow from '../MainSlideshow';
 
 
 const SpotCard = ({ spot }) => {
-  const { id, city, state, country, name, Images, price } = spot;
+  const { id, city, state, address, country, name, Images, price } = spot;
 
 
   return (
@@ -16,6 +16,7 @@ const SpotCard = ({ spot }) => {
         <div className='card__location'>
         <p className='card__text card__name'>{name}</p>
         </div>
+          <p className='card__text card__location'>{address}</p>
           <p className='card__text card__location'>{city}, {state}</p>
         <div className='card__value-container'>
           <p className='card__text card__value'>${price}</p>
