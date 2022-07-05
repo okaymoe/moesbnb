@@ -1,7 +1,5 @@
 # moesbnb #
 
-**Created using:** ***Javascript*** - ***React*** - ***Redux*** - ***Sequelize*** - ***PostgreSQL*** - ***Express*** - ***CSS***
-
 Welcome to moesbnb! The functionality and essence similarly mimics airbnb. With moesbnb, users are able to create Spots and host their homes, apartments, etc. Users can also view other host's spots. After a spot has been created, users may leave a review of the spot, which can be deleted if the user wishes.  
 
 **Take a trip to moesbnb:** https://moesbnb.herokuapp.com/
@@ -71,3 +69,12 @@ Where do I begin! Let's start off by saying I had a week to do this project. On 
     </div>
   )
 }```
+
+**Created using:** 
+- ***Javascript***
+- ***React***
+- ***Redux***
+- ***Sequelize***
+- ***PostgreSQL***
+- ***Express***
+- ***CSS***
