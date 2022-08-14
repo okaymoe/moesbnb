@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div id='footer-container' className={`footer-animation-${footerGrow}`}>
             <div id='footer-top'>
-                <p>© 2022 Fairbnb, Inc.</p>
+                <p>© 2022 moesbnb, Inc.</p>
                 <div id='footer-right-info'>
                     <a className='footer-anchor' href='https://github.com/okaymoe' target='https://github.com/okaymoe'>
                         <div id='footer-github'>
