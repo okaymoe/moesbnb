@@ -61,7 +61,7 @@ const Footer = () => {
                     </div>
                     <div id='footer-description'>
                         <span>
-                            Fairbnb is a clone meant to mimic the design and functionality of Airbnb. Create an account, post a spot, leave some reviews,
+                            moesbnb is a clone meant to mimic the design and functionality of Airbnb. Create an account, post a spot, leave some reviews,
                             and book your next stay!
                         </span>
                         <span id='footer-created-by'>
