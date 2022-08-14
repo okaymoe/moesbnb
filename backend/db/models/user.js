@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   {
     defaultScope: {
       attributes: {
-        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
+        exclude: ['hashedPassword', 'createdAt', 'updatedAt']
       }
     },
     scopes: {
@@ -47,22 +47,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
+  User.associate = function(models) {
+    User.hasMany(models.Spot, {
+      foreignKey: 'userId'
+    });
+    User.hasMany(models.Review, {
+      foreignKey: 'userId'
+    });
+    User.hasMany(models.Booking, {
+      foreignKey: 'userId'
+    });
+  };
+
+  User.prototype.toSafeObject = function() {
+    const { id, username, email } = this;
     return { id, username, email };
   };
 
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
-   };
+  };
 
-
-   User.getCurrentUserById = async function (id) {
+  User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
-   };
+  };
 
-
-   User.login = async function ({ credential, password }) {
+  User.login = async function ({ credential, password }) {
     const { Op } = require('sequelize');
     const user = await User.scope('loginUser').findOne({
       where: {
@@ -86,13 +96,6 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id);
   };
-
-  User.associate = function(models) {
-    User.hasMany(models.Spot, {foreignKey: 'userId' });
-    User.hasMany(models.Review, {foreignKey: 'userId' });
-  };
-
-  
 
   return User;
 };

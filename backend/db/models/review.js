@@ -2,26 +2,35 @@
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
-      allowNull: false
+      references: {
+        model: 'Users'
+      },
     },
     spotId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
-      allowNull: false
+      references: {
+        model: 'Spots'
+      },
     },
-    comment: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    description: {
+      allowNull: false,
+      type: DataTypes.STRING(200)
     },
     rating: {
-      type: DataTypes.INTEGER,
+      allowNull: false,
+      type: DataTypes.INTEGER
     },
   }, {});
   Review.associate = function(models) {
-    Review.belongsTo(models.Spot, { foreignKey: 'spotId' });
-    Review.belongsTo(models.User, { foreignKey: 'userId' });
+    Review.belongsTo(models.User, {
+      foreignKey: 'userId'
+    });
+    Review.belongsTo(models.Spot, {
+      foreignKey: 'spotId'
+    });
   };
   return Review;
-
-
 };

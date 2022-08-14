@@ -2,54 +2,59 @@
 module.exports = (sequelize, DataTypes) => {
   const Spot = sequelize.define('Spot', {
     userId: {
-      type:DataTypes.INTEGER,
-      allowNull: false
-     },
-     address: {
-      type:DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [2, 25]
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users'
       },
-     },
-     city: {
-      type:DataTypes.STRING,
+    },
+    address: {
       allowNull: false,
-      validate: {
-        len: [2, 25]
-      },
-     },
+      unique: true,
+      type: DataTypes.STRING(64)
+    },
+    city: {
+      allowNull: false,
+      type: DataTypes.STRING(64)
+    },
     state: {
-      type:DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [2, 25]
-      },
-     },
+      type: DataTypes.STRING(20)
+    },
     country: {
-      type:DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [2, 25]
-      },
-     },
+      type: DataTypes.STRING(64)
+    },
     name: {
-      type:DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [2, 25]
-      },
-     },
+      unique: true,
+      type: DataTypes.STRING(32)
+    },
     price: {
-      type:DataTypes.NUMERIC,
-      allowNull: false
-     },
-     
+      allowNull: false,
+      type: DataTypes.DECIMAL
+    },
   }, {});
   Spot.associate = function(models) {
-    Spot.belongsTo(models.User, { foreignKey: 'userId' })
-    Spot.hasMany(models.Image, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true })
-    Spot.hasMany(models.Review, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true })
+    Spot.belongsTo(models.User, {
+      foreignKey: 'userId'
+    });
+    Spot.hasMany(models.Review, {
+      foreignKey: 'spotId',
+      onDelete: 'CASCADE',
+      hooks: true
+    });
+    Spot.hasMany(models.Image, {
+      foreignKey: 'spotId',
+      onDelete: 'CASCADE',
+      hooks: true
+    });
+    Spot.hasMany(models.Booking, {
+      foreignKey: 'spotId',
+      onDelete: 'CASCADE',
+      hooks: true
+    });
   };
+
   return Spot;
 };

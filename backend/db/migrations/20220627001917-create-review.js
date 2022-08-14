@@ -11,26 +11,32 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Users'
+        },
       },
       spotId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Spots'
+        },
       },
-      comment: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      description: {
+        allowNull: false,
+        type: Sequelize.STRING(200)
       },
       rating: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       createdAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
-
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },

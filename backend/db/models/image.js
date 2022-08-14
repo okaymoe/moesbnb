@@ -2,14 +2,21 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define('Image', {
     spotId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
+      references: {
+        model: 'Spots'
+      }
     },
     url: {
-      type: DataTypes.STRING,
+      allowNull: false,
+      type: DataTypes.STRING
     },
   }, {});
   Image.associate = function(models) {
-  Image.belongsTo(models.Spot, {foreignKey: 'spotId'})
+    Image.belongsTo(models.Spot, {
+      foreignKey: 'spotId'
+    });
   };
   return Image;
 };
