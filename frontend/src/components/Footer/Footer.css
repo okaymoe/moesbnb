@@ -1,16 +1,205 @@
-.main-footer {
+#footer-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: 2;
+
     position: fixed;
     bottom: 0;
+
     width: 100%;
-    background-color: rgb(255, 139, 139);
+
+    margin: 0;
+
+    background-color: white;
+    border-top: 1px solid #dddddd;
+
+    transition: height .1s ease-in;
 }
 
-#linkedin {
-    padding: 7px;
+.footer-anchor {
+    color: black;
+    text-decoration: none;
 }
 
-#github {
-    padding: 7px;
+#footer-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0 15% 0 15%;
+}
+
+#footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+    margin-top: 3%;
+}
+
+#footer-right-info {
+    display: flex;
+    justify-content: space-between;
+    width: 365px;
+}
+
+#footer-github {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    height: fit-content;
+}
+#footer-github > p {margin-left: 5px;}
+#footer-linkedin > p {margin-left: 5px;}
+#footer-github-logo {
+    margin-top: 10px;
+}
+
+.footer-right-info-text {
+    font-weight: 600;
+    user-select: none;
+}
+
+#footer-about {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    height: fit-content;
+}
+
+#footer-arrow {
+    width: 15px;
+    margin-top: 18px;
+    margin-left: 8px;
+    transition: transform .25s linear;
+}
+
+.footer-animation-false {
+    height: 3.3rem;
+}
+.footer-animation-true {
+    height: 50%;
+}
+.footer-animation-arrow-true {
+    transform: rotate(-180deg);
+}
+
+/* tooltips */
+
+.footer-github-tt {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    width: 182px;
+
+    padding: 5px 15px 5px 15px;
+
+    left: -30px;
+    bottom: 60px;
+
+    font-weight: 600;
+    background-color: #d2d2d2;
+    border-radius: 5px;
+    opacity: 0;
+
+    transition: opacity .2s ease-in;
+}
+#footer-github:hover .footer-github-tt {opacity: 100%;}
+#github-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 8px;
+    bottom: 52px;
+
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+
+    border-top: 8px solid #d2d2d2;
+    opacity: 0;
+
+    transition: opacity .2s ease-in;
+}
+#footer-github:hover #github-triangle {opacity: 100%;}
+
+#footer-linkedin {
+    display: flex;
+    position: relative;
+    height: fit-content;
+}
+.footer-linkedin-tt {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    width: 210px;
+
+    padding: 5px 15px 5px 15px;
+
+    left: -20px;
+    bottom: 60px;
+
+    font-weight: 600;
+    background-color: #d2d2d2;
+    border-radius: 5px;
+    opacity: 0;
+
+    transition: opacity .2s ease-in;
+}
+#footer-linkedin:hover .footer-linkedin-tt {opacity: 100%;}
+#linkedin-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 8px;
+    bottom: 52px;
+
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+
+    border-top: 8px solid #d2d2d2;
+    opacity: 0;
+
+    transition: opacity .2s ease-in;
+}
+#footer-linkedin:hover #linkedin-triangle {opacity: 100%;}
+
+#footer-bottom-topinfo {
+    display: flex;
+    justify-content: center;
+}
+
+#footer-icon,#footer-logo {
+    fill: #ff385c;
+}
+#footer-logo {
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+#footer-description {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 2%;
+
+    font-size: 20px;
+}
+#footer-created-by {
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(82, 82, 82);
+}
+
+#footer-bottom-tech {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 4% 15% 0 15%;
+
+    font-size: 32px;
 }

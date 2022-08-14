@@ -1,0 +1,33 @@
+#spot-edit-form {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 25% 0 25%;
+}
+
+.edit-form-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+#edit-spot-images {
+    display: flex;
+    flex-direction: column;
+}
+#edit-spot-images > input {
+    margin-bottom: 10px;
+}
+
+.edit-form-input {
+    padding: 8px 12px 8px 12px;
+    border: 1px solid #737373;
+    border-left: 5px solid #737373;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+#edit-form-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}

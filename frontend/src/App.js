@@ -1,59 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import { getSpots } from './store/spots'
-import SignupFormPage from "./components/SignupFormModal";
-import Navigation from "./components/Navigation";
-import Home from "./components/Home";
-import SpotForm from "./components/SpotForm";
-import UserSpots from "./components/UserSpots";
-import SpotsDetails from "./components/SpotsDetails"
-import ReviewForm from "./components/ReviewForm";
-import * as sessionActions from "./store/session";
-import PageNotFound from "./components/PageNotFound";
-import Banner from "./components/Banner";
-import Footer from "./components/Footer";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import * as sessionActions from './store/session';
+
+import Navigation from './components/Navigation';
+import PageNotFound from './components/PageNotFound';
+import LoginFormPage from './components/LoginFormPage';
+import SignupFormPage from './components/SignupFormPage';
+import SpotFormPage from './components/SpotFormPage';
+import SpotsContainer from './components/SpotsContainer';
+import SpotDetail from './components/SpotDetail';
+import Footer from './components/Footer';
+import Profile from './components/Profile';
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+    dispatch(sessionActions.restoreUser()).then(() => setLoaded(true));
+  }, [dispatch])
 
-  const sessionUser = useSelector(state => state.session.user);
-  const spots = useSelector(state => state.spots);
-
-  useEffect(() => {
-    dispatch(getSpots());
-  }, [dispatch]);
-
-  return (
+  return loaded ? (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-          <Switch>
-            <Route exact path="/">
-              <Banner/>
-              <Home/>
-            </Route>
-            <Route exact path={'/spots/:id'}>
-              <SpotsDetails spots={spots} />
-            </Route>
-            <Route exact path={'/spots'}>
-              <SpotForm />
-            </Route>
-            <Route exact path={'/users/:id/spots'}>
-              <UserSpots spots={spots} user={sessionUser} />
-            </Route>
-            <Route>
-              <PageNotFound/>
-            </Route>
-          </Switch>
-      )}
+      <Navigation loaded={loaded} />
+      <Switch>
+        <Route exact path="/">
+          <SpotsContainer />
+        </Route>
+        <Route exact path="/login">
+          <LoginFormPage />
+        </Route>
+        <Route exact path="/signup">
+          <SignupFormPage />
+        </Route>
+        <Route exact path="/spots/new">
+          <SpotFormPage />
+        </Route>
+        <Route exact path='/spots/:spotId'>
+          <SpotDetail />
+        </Route>
+        <Route exact path='/users/:userId'>
+          <Profile />
+        </Route>
+        <Route>
+          <PageNotFound />
+        </Route>
+      </Switch>
+      <Footer />
     </>
-  );
+    ) : null
 }
 
 export default App;

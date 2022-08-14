@@ -1,0 +1,189 @@
+.spots-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: 120px 2% 8% 2%;
+}
+
+.individual-spot {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+
+    margin: 30px;
+
+    height: fit-content;
+
+    cursor: pointer;
+}
+.individual-spot-fake {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+
+    margin: 30px;
+
+    height: fit-content;
+}
+
+.img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background-color: #dddddd;
+}
+
+.individual-spot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    animation: .15s ease 0s 1 fadeIn;
+}
+.individual-spot-img-fake {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #dddddd;
+    margin-bottom: 0;
+}
+.spot-card-name-fake {
+    margin: 5px 0 5px 0;
+    padding: 0;
+    width: 160px;
+    height: 16px;
+
+    background-color: #dddddd;
+
+    border-radius: 50px;
+}
+.spot-card-price-fake {
+    margin: 5px 0 5px 0;
+    padding: 0;
+    width: 80px;
+    height: 16px;
+
+    background-color: #dddddd;
+
+    border-radius: 50px;
+}
+.spot-card-rating-fake {
+    margin: 5px 0 5px 0;
+    padding: 0;
+    width: 50px;
+    height: 16px;
+
+    background-color: #dddddd;
+
+    border-radius: 50px;
+}
+
+.slide {
+    position: relative;
+    opacity: 0;
+    transition-duration: .25s ease;
+}
+.slide-active {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 1;
+    transition-duration: .25s;
+}
+
+.spot-card-leftarrow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    left: 15px;
+
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity .15s ease, width .15s ease, height .15s ease;
+}
+.spot-card-rightarrow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    right: 15px;
+
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity .15s ease, width .15s ease, height .15s ease;
+}
+
+.individual-spot:hover .spot-card-leftarrow,.individual-spot:hover .spot-card-rightarrow {
+    opacity: 80%;
+}
+
+.spot-card-leftarrow:hover, .spot-card-rightarrow:hover {
+    width: 32px;
+    height: 32px;
+}
+
+.spot-card-topinfo {
+    display: flex;
+    justify-content: space-between;
+}
+.spot-card-topinfo > section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spot-card-rating {
+    margin: 5px 5px 0 0;
+}
+
+.front-page-star {
+    margin-top: 1px;
+    color: black;
+}
+
+.spot-card-name {
+    margin: 5px 0 0 0;
+
+    font-weight: 600;
+}
+.spot-card-price {
+    margin: 5px 0 0 0;
+}
+.spot-card-cost {
+    font-weight: 600;
+}
+
+.individual-spot-link {
+    color: black;
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
