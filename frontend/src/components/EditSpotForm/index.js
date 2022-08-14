@@ -48,7 +48,6 @@ const EditSpotForm = ({ spot, user, setTrigger }) => {
       name,
       price
     };
-
     let updatedSpot;
 
     try {
