@@ -1,134 +1,143 @@
-const express = require('express');
+const express = require('express')
 const asyncHandler = require('express-async-handler');
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
-const { isCurrentUser } = require('../../utils/auth');
-const { Op } = require('sequelize');
 
-// const { getUserToken } = require("../auth");
+const { requireAuth } = require('../../utils/auth');
+const { validateSpot, validateSpotDelete } = require('../../utils/validation');
+const { Spot, Image, Review, Booking } = require('../../db/models');
 
-const { User, Spot, Image, Review } = require('../../db/models');
 const router = express.Router();
 
-const validateSpot = [
-  check('address')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide an address')
-    .isLength({ max: 50 })
-    .withMessage('Please keep address within 50 characters'),
-  check('city')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a city')
-    .isLength({ max: 50 })
-    .withMessage('Please keep city within 50 characters'),
-  check('state')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a state')
-    .isLength({ max: 50 })
-    .withMessage('Please keep state within 50 characters'),
-  check('country')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a country')
-    .isLength({ max: 50 })
-    .withMessage('Please keep country within 50 characters'),
-  check('name')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a descriptive name')
-    .isLength({ max: 150 })
-    .withMessage('Please keep address within 150 characters'),
-  check('price')
-    .exists({ checkFalsey: true })
-    .withMessage('Please provide a nightly rate'),
-  handleValidationErrors
-];
+// Create
+router.post(
+    '/',
+    requireAuth,
+    validateSpot,
+    asyncHandler(async (req, res) => {
+        const { userId, address, city, state, country, name, price, images } = req.body;
 
-router.get('/', asyncHandler(async (_req, res) => {
-  const spots = await Spot.findAll({
-    include: [{
-      model: Review,
-    },{
-      model: Image,
-    }]
-  })
-  return res.json(spots);
-}));
+        const spot = await Spot.create({
+            userId,
+            address,
+            city,
+            state,
+            country,
+            name,
+            price
+        });
+        const spotId = spot.id;
+        const imgArr = [];
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const id = req.params.id;
-  const spot = await Spot.findByPk(id, {
-    include: {
-      model: Image,
-      where: {
-        spotId: id
-      }
-    }
-  });
-  
-  router.get('/:id/reviews', asyncHandler(async function(req, res) {
-    const id = req.params.id
+        for (let url of images) {
+            if (url) imgArr.push(await Image.create({spotId, url}));
+        }
 
-    const reviews = await Review.findAll({
-      where: {
-        spotId: id
-      },
-      include: User
+        return res.json({
+          spot,
+          imgArr
+        });
+    })
+);
+
+// Load All
+router.get('/all', asyncHandler(async (req, res) => {
+    const data = await Spot.findAll({
+        include: [
+            {
+                model: Image,
+                attributes: ['url']
+            },
+            {
+                model: Review,
+                attributes: ['rating']
+            }
+        ]
     });
-
-    return res.json(reviews);
-  }));
-  return res.json(spot);
+    console.log(JSON.stringify(data))
+    return res.json(data);
 }));
 
+// Load individual
+router.get('/:spotId(\\d+)', asyncHandler(async (req, res) => {
+    const spotId = parseInt(req.params.spotId, 10);
+    const spot = await Spot.findByPk(spotId);
 
-
-router.post('/', validateSpot, asyncHandler(async function (req, res, next) {
-  const currentUser = isCurrentUser(req);
-
-  const {
-    address,
-    city,
-    state,
-    country,
-    name,
-    price,
-  } = req.body;
-
-  const spot = await Spot.create({
-    userId: currentUser.id,
-    address,
-    city,
-    state,
-    country,
-    name,
-    price,
-  });
-  const newSpot = await Spot.findOne({
-    where: {id: spot.id},
-    include: [{model: Image}]
-  });
-
-  return res.json(newSpot);
+    const images = await Image.findAll({
+        where: {
+            spotId
+        }
+    });
+    const reviews = await Review.findAll({
+        where: {
+            spotId
+        }
+    });
+    const bookings = await Booking.findAll({
+        where: {
+            spotId,
+        }
+    });
+    return res.json({spot, images, reviews, bookings});
 }));
 
-router.put('/:id(\\d+)', validateSpot, asyncHandler(async function (req, res, next) {
-  const id = parseInt(req.params.id);
-  await Spot.update(req.body, {
-    where: { id }
-  });
-  const spot = await Spot.findByPk(id);
-  return res.json(spot);
-}))
+// Update individual
+router.patch('/:spotId(\\d+)',
+    requireAuth,
+    validateSpot,
+    asyncHandler(async (req, res) => {
+        const spotId = parseInt(req.params.spotId, 10);
+        const spot = await Spot.findByPk(spotId);
 
-router.delete('/:id(\\d+)', asyncHandler(async function (req, res) {
-  const id = parseInt(req.params.id);
-  const spot = await Spot.findByPk(id);
-  if (spot) {
-    await spot.destroy();
-    return res.json(id)
-  } else {
-    throw new Error('Spot could not be found')
-  }
+        const imgArr = [];
+
+        // check if images are removed, delete from DB if so
+        const filteredOld = (req.body.oldImages).filter(url => {
+            return !(req.body.images).includes(url);
+        });
+        if (filteredOld.length) {
+            for (let url of filteredOld) {
+                if (url) {
+                    const imgToRemove = await Image.findOne({ where: { spotId, url } });
+                    await imgToRemove.destroy();
+                }
+            }
+        }
+        // check for new image, add to DB if so
+        for (let url of req.body.images) {
+            if (url) {
+                const img = await Image.findAll({ where: { url } });
+                if (!img.length) {
+                    const newImg = await Image.create({spotId, url});
+                    imgArr.push(newImg);
+                } else {
+                    imgArr.push(await Image.findOne({ where: { url } }));
+                }
+            }
+        }
+
+        spot.address = req.body.address;
+        spot.city = req.body.city;
+        spot.state = req.body.state;
+        spot.country = req.body.country;
+        spot.name = req.body.name;
+        spot.price = req.body.price;
+
+        await spot.save();
+
+        return res.json({spot, imgArr});
 }));
 
+// Delete individual
+router.delete('/:spotId(\\d+)',
+    requireAuth,
+    validateSpotDelete,
+    asyncHandler(async (req, res) => {
+        const spotId = req.body.spot.id;
+
+        // destroy spot from DB
+        const spot = await Spot.findByPk(spotId);
+        await spot.destroy();
+
+        return res.json({});
+}));
 
 module.exports = router;
